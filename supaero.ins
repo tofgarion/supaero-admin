@@ -1,0 +1,55 @@
+%% ISAE/SUPAERO style for lettre.sty
+%% C. Garion, 2009
+
+\newcommand\nomEntete{Dr Christophe Garion}
+\newcommand\fonction{Professeur Associé d'Informatique}
+
+\makeatletter
+\newcommand*{\NoRule}{\renewcommand*{\rule@length}{0}}
+\makeatother
+
+\makeatletter
+\def\ps@empty{%
+   \headheight 0pt%
+   \headsep 9pt%
+   \def\@oddhead{}%
+   \def\@oddfoot{%
+       \ifnum\c@page=1\relax
+          \ifx\@empty\emailflag
+             \ifx\@empty\bdp
+             \else
+                \hbadness=10000\relax
+                \rlap{\parbox{\textwidth}{\mbox{}\\\bdp}}
+                ~\hfill~
+                \hbadness=1000\relax
+             \fi
+          \else
+             \hbadness=10000\relax
+             \rlap{\parbox{\textwidth}{\mbox{}\\\rule{\textwidth}{.4pt}\\\emailine}}%
+             ~\hfill~
+             \hbadness=1000\relax
+          \fi
+       \fi}%
+   \def\@evenhead{}%
+   \def\@evenfoot{}}%
+\makeatother
+
+\address{
+\includegraphics[scale=0.25]{VL_SUPAERO_72_cmjn.png}
+
+\vspace{10pt}
+
+\nomEntete{}\\
+\fonction{}\\[5pt]
+ISAE/DMIA - SUPAERO/IN\\
+10 avenue \'Edouard Belin\\
+BP 54032\\
+31055 Toulouse Cedex 4\\
+France}
+\telephone{+33 (5) 61 33 80 57}
+\fax{+33 (5) 61 33 83 45}
+\lieu{Toulouse}
+\francais
+\email{garion@isae.fr}
+
+\basdepage{\centering \includegraphics[scale=0.38]{footletter}}

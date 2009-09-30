@@ -1,0 +1,100 @@
+\documentclass[pdftex,12pt,a4paper,origdate]{lettre}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl,aeguill}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage[pdftex]{hyperref}
+
+
+\DeclareOldFontCommand{\rm}{\sffamily}{\mathsf}
+\renewcommand\familydefault{cmss}
+
+%======================================================================
+% Début du document
+%======================================================================
+\begin{document}
+
+%======================================================================
+% Le nom pour la signature et le destinataire
+%======================================================================
+\name{Christophe Garion\\Resp. «~Mise à niveau littéraires~»}
+
+\institut{supaero}
+
+\begin{letter}{Ausias Gamisans\\ Professeur Associé d'Espagnolo
+    Facilo\\ISAE/LACS}
+
+%======================================================================
+% Adresse différente, pas de téléphone etc.
+%======================================================================
+%\address{}
+%\telephone{}
+%\nofax
+%\email{}
+%lieu{}
+%\Nref{}
+%\Vref{}
+%\conc{}
+
+\opening{Cher Ausias,}
+
+Suite à ta question d'hier, je me permets de t'écrire pour te rappeler
+la formulation du théorème de Pythagore. Supposons\footnote{Les
+  scientifiques utilisent beaucoup ce mot. C'est pour poser ce que
+  l'on appelle une \emph{hypothèse}.} que l'on ait un triangle
+rectangle de côtés de longueurs $a$, $b$ et $c$ (les côtés
+adjacents\footnote{Adjacent signifie «~à côté de ~». Si si,
+  souviens-toi, tu as entendu ce mot au collège.} à l'angle droit
+étant ceux de longueur $a$ et $b$) comme représenté ci-dessous:
+
+  \begin{tikzpicture}
+    \filldraw[draw=blue!50!black, fill=blue!20] (0,0) -- node[pos=0.5,
+    color=black, below, yshift=-2pt] {$a$} (4,0) -- node[pos=0.5, color=black,
+    right, xshift=4pt, anchor=west] {$c$} (0,3) -- node[color=black, pos=0.5, left, xshift=-2pt] {$b$} (0,0);
+  \end{tikzpicture}
+
+  Dans ce cas, l'équation suivante, appelée théorème de Pythagore,
+  permet de relier les trois grandeurs $a$, $b$ et $c$:
+
+    \begin{equation}
+      \label{eq:1}
+      a^2 + b^2 = c^2
+    \end{equation}
+
+Dans notre cas, si $a = 4$ et $b = 3$ et que l'on cherche la valeur de
+$c$, on peut donc écrire\footnote{Tu peux mesurer la figure précédente
+  avec ta règle graduée et trouver la solution, mais ce n'est pas
+  l'objectif de l'exercice.}:
+
+\begin{equation*}
+  \begin{split}
+    c^2 & = 4^2 + 3^2\\
+     & = 16 + 9\\
+     & = 25\\
+    c & = \sqrt{25} \text{ car $c$ est une valeur
+      positive\footnotemark}\\
+      & = 5
+  \end{split}
+\end{equation*}
+
+\footnotetext{Souviens-toi, il s'agit d'une longueur!}
+
+Bonus vocabulaire: le côté de longueur $c$ s'appelle
+\emph{l'hypoténuse}. Ce n'est pas vrai pour tous les côtés de longueur
+$c$, il s'agit en fait du côté qui ne «~touche~» pas l'angle
+droit. Dans notre exemple il est de longueur $c$, mais c'est un cas
+particulier.
+
+La semaine prochaine, nous parlerons des fractions. C'est un peu
+difficile, mais je sens que tu as le potentiel pour bien comprendre
+tout cela.
+
+\closing{Amitiés scientifiques,}
+
+%\encl{}
+
+\end{letter}
+\end{document}

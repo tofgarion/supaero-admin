@@ -1,0 +1,12 @@
+*.aux
+*.bbl
+*.blg
+*.out
+*.nav
+*.log
+*.snm
+*.toc
+*~
+*.el
+*.rel
+*_region_*
