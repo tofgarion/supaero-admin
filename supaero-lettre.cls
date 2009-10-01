@@ -22,11 +22,79 @@
 % institut file
 \institut{supaero}
 
-% \makeatletter
-% \renewcommand*{\NoRule}{\renewcommand*{\rule@length}{0}}
-% \makeatother
-
 \makeatletter
+\def\letteropening#1{%
+                 \if@origdate
+                   \expandafter\ifx\csname origdate\the\c@lettre
+                                   \endcsname\relax
+                   \else
+                      \l@@info{Date originale lue dans \jobname.odt}%
+                      \def\pdate{\csname origdate\the\c@lettre\endcsname}%
+                   \fi
+                   \l@@info{`\pdate' ecrit dans \jobname.odt}%
+                   \immediate\write\@dateaux{%
+                        \string\expandafter\string\def%
+                        \string\csname\space origdate\the\c@lettre
+                        \string\endcsname{\pdate}}%
+                \fi
+   \hbadness=10000\relax
+   \thispagestyle{empty}% 
+   \setlength{\unitlength}{1mm}%
+   \advance\rightskip -75pt%
+   \begin{picture}(\pict@let@width,\pict@let@height)%
+                  (\pict@let@hoffset,\pict@let@voffset)%
+     \put(\rule@hpos,\rule@vpos){\line(1,0){\rule@length}}%
+     \put(\fromaddress@let@hpos,\fromaddress@let@vpos){\makebox(0,0)[tl]{%
+          \parbox[t]{\fromaddress@let@width}{%
+                  \fromaddress\\[3mm]%
+                  \ifx\@empty\fromlocation
+                  \else \fromlocation \\%
+                  \fi 
+                  \ifx\@empty\telephonenum
+                  \else \tellabelname \telephonenum \\
+                  \fi
+                  \ifx\@empty\faxnum
+                  \else \faxlabelname \faxnum \\
+                  \fi
+                  \ifx\@empty\emailnum
+                  \else \mbox{\emaillabelname\ttfamily\emailnum} \\
+                  \fi}}}
+     \put(\fromlieu@let@hpos,\fromlieu@let@vpos){\makebox(0,0)[bl]{%
+          \parbox[t]{\fromlieu@let@width}{%
+                 \ifx\@empty\fromlieu
+                 \else\fromlieu, %
+                 \fi 
+                \ifx\@empty\pdate ~%
+                \else \pdate
+                \fi}}}%
+     \put(\toaddress@let@hpos,\toaddress@let@vpos){\makebox(0,0)[tl]{%
+          \parbox{\toaddress@let@width}{%
+                 \toname\\\toaddress}}}%
+   \end{picture}%
+   \par\vskip\csname letter\the\c@lettre\endcsname mm
+   \advance\leftskip\lettermargin
+   \advance\rightskip75pt%
+   \ifx\@empty\auxflag
+     \vspace{2\openingspace}%
+   \else 
+     \vspace{2\openingspace}\auxline\vspace{\openingspace}%
+   \fi
+   \vskip\csname letter\the\c@lettre\endcsname mm
+   \ifx\@empty\concdecl 
+     \vspace{\openingspace}%
+   \else 
+     \concline\vspace{\openingspace}%
+   \fi
+   \vskip\csname letter\the\c@lettre\endcsname mm
+   \hbadness=1000\relax
+   {\parindent=\openingindent
+   #1}\par\startbreaks\nobreak
+   \let\flushleft=\letterflushleft
+   \let\raggedright=\letterraggedright
+   \let\center=\lettercenter
+   \let\centering=\lettercentering}%
+%
+
 \def\ps@empty{%
    \headheight 0pt%
    \headsep 9pt%
@@ -50,4 +118,12 @@
        \fi}%
    \def\@evenhead{}%
    \def\@evenfoot{}}%
+
+\def\concline{%
+         \noindent\parbox[t]{\letterwidth}%
+           {\@hangfrom{\concname}\ignorespaces\concdecl\strut}%
+         \par}%
+
+
 \makeatother
+
