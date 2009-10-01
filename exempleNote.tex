@@ -12,7 +12,6 @@
     DFS: M. Samuelides\\
     RP1: C. Garion
   \end{tabular}
-
   }
 
 \objet{Établissement d'un manuel d'utilisation d'une classe \LaTeX
@@ -130,6 +129,19 @@ La page de titre se personnalise de la façon suivante:
    } 
 \end{verbatim}
 \end{itemize}
+
+\subsection{Fichier de déclarations}
+\label{sec:fich-de-decl}
+
+Il se peut que l'on utilise souvent les mêmes destinataires etc. On
+peut avec la classe \texttt{supaero-note} utiliser un fichier
+\texttt{mon-fichier.sup} qui contient des redéfinitions (par exemple
+\verb!\author{}! etc.). Pour cela, il suffit de passer
+\verb!mon-fichier! en option de \verb!\documentclass!~:
+
+\begin{verbatim}
+  \documentclass[mon-fichier]{supaero-note}
+\end{verbatim}
 
 \section{Code source de la présente note}
 \label{sec:code-source}
