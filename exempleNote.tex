@@ -1,0 +1,150 @@
+\documentclass{supaero-note}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{url}
+\usepackage{verbatim}
+
+\begin{document}
+
+\textrhead{
+  \begin{tabular}[b]{l}
+    DFS: M. Samuelides\\
+    RP1: C. Garion
+  \end{tabular}
+
+  }
+
+\objet{Établissement d'un manuel d'utilisation d'une classe \LaTeX
+  pour les notes DFS}
+
+\destinataires{
+  \begin{itemize}
+  \item professeurs DFS
+  \end{itemize}
+}
+
+\motscles{\LaTeX, yenamarredeword}
+
+\revisions{
+   & 1/10/2009 & & Création du document\\
+   \hline
+}
+
+\author{C. Garion}
+
+\title{Note portant sur l'utilisation d'un style \LaTeX pour les notes DFS}
+\maketitle
+
+\section{Objectifs}
+\label{sec:objectifs}
+
+L'objectif de ce «~travail~» était de produire une classe \LaTeX
+\texttt{supaero-note} permettant de créer des notes de travail pour la
+DFS (Direction de Formation SUPAERO). La classe ainsi obtenue devait
+être facile d'utilisation et personnalisable.
+
+La classe a été produite en suivant les conseils
+de~\cite{flynn07:_rollin_docum_class} et
+\cite{hefferson05:_linut}. Deux paquetages principaux ont été
+utilisés: \texttt{fancyhdr} et \textsf{geometry} qui sont disponibles
+dans toutes les distributions \LaTeX. Le lecteur souhaitant étudier de
+plus près ces paquetages pourra consulter les archives
+CTAN~\cite{ctan} ou \cite{mittelbach04:_latex_companion}.
+
+\section{Utilisation de la classe}
+\label{sec:utilisation-de-la}
+
+\subsection{Chargement de la classe et dimensions}
+\label{sec:chargement-classe}
+
+La classe s'utilise très simplement. Elle est dérivée de la classe
+\texttt{article}, donc la plupart des commandes, longueurs, éléments
+de mise en page usuels s'y trouvent. Il suffit dans un premier temps
+d'utiliser \texttt{supaero-note} comme classe~:
+
+\begin{verbatim}
+  \documentclass{supaero-note}
+\end{verbatim}
+
+Les dimensions de la page ont été définies grâce au paquetage
+\texttt{geometry}. On peut donc se servir de ce dernier pour les
+changer. Par exemple, pour changer la proportion horizontale de texte
+sur la page\footnote{la valeur est 0.85 par défaut.}, on peut faire:
+
+\begin{verbatim}
+  \geometry{hscale=0.7}
+\end{verbatim}
+
+\subsection{Entêtes et pieds de page}
+\label{sec:entetes-et-pieds}
+
+Les entêtes et pieds de page sont définis grâce au paquetage
+\texttt{fancyhdr}. On dispose donc de plusieurs commandes pour
+modifier directement les éléments~:
+
+\begin{verbatim}
+  \lhead{contenu de la partie gauche de l'entête}
+  \chead{contenu de la partie centrale de l'entête}
+  \rhead{contenu de la partie droite de l'entête}
+  \lfoot{contenu de la partie gauche du pied de page}
+  \cfoot{contenu de la partie centrale du pied de page}
+  \rfoot{contenu de la partie droite du pied de page}
+\end{verbatim}
+
+On dispose également d'une commande spéciale pour redéfinir la partie
+droite de l'entête dont la valeur par défaut est «~DFS~:
+M. Samuelides~»~:
+
+\begin{verbatim}
+  \textrhead{nouvelle partie droite de l'entête}
+\end{verbatim}
+
+De la même façon, on dispose des commandes \verb!\textlhead! et
+\verb!\textchead!.
+
+\subsection{Page de titre}
+\label{sec:page-de-titre}
+
+La page de titre se personnalise de la façon suivante:
+
+\begin{itemize}
+\item la commande \verb!\title{}! permet de donner le titre
+\item la commande \verb!\author{}! permet de donner le nom du
+  rédacteur du document
+\item la commande \verb!\objet{}! permet de donner l'objet de la note
+\item la commande \verb!\destinataires! permet de donner la liste des
+  destinataires de la note
+\item la commande \verb!\motscles{}! permet de donner la liste des
+  mots-clés
+\item la commande \verb!\revisions{}! permet de donner la liste des
+  révisions. Chaque révision est en fait une ligne d'un tableau, donc
+  il faut utilsier \verb!&! pour séparer les colonnes du tableau,
+  \verb!\\! pour passer à une autre ligne et \verb!\hline! pour tracer
+  une ligne. Par exemple~:
+
+\begin{verbatim}
+   \revisions{
+      indice & 1/10/2009 & statut & Création du document\\
+      \hline
+   } 
+\end{verbatim}
+\end{itemize}
+
+\section{Code source de la présente note}
+\label{sec:code-source}
+
+Le code source de la présente note est présenté sur le listing
+suivant.
+
+\verbatiminput{exempleNote.tex}
+
+\section{Code source de la classe}
+\label{sec:code-source-supaero-note}
+
+\verbatiminput{supaero-note.cls}
+
+\bibliographystyle{plain}
+\bibliography{supaero}
+
+\end{document}
