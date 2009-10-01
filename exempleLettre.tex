@@ -1,4 +1,4 @@
-\documentclass[pdftex,12pt,a4paper,origdate]{lettre}
+\documentclass[pdftex,a4paper,12pt,origdate]{supaero-lettre}
 
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
@@ -7,10 +7,7 @@
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage[pdftex]{hyperref}
-
-
-\DeclareOldFontCommand{\rm}{\sffamily}{\mathsf}
-\renewcommand\familydefault{cmss}
+\usepackage{verbatim}
 
 %======================================================================
 % Début du document
@@ -18,14 +15,9 @@
 \begin{document}
 
 %======================================================================
-% Le nom pour la signature et le destinataire
+% Le nom pour la signature
 %======================================================================
 \name{Christophe Garion\\Resp. «~Mise à niveau littéraires~»}
-
-\institut{supaero}
-
-\begin{letter}{Ausias Gamisans\\ Professeur Associé d'Espagnolo
-    Facilo\\ISAE/LACS}
 
 %======================================================================
 % Adresse différente, pas de téléphone etc.
@@ -38,6 +30,9 @@
 %\Nref{}
 %\Vref{}
 %\conc{}
+
+\begin{letter}{Ausias Gamisans\\ Professeur Associé d'Espagnolo
+    Facilo\\ISAE/LACS}
 
 \opening{Cher Ausias,}
 
@@ -94,7 +89,42 @@ tout cela.
 
 \closing{Amitiés scientifiques,}
 
+% pièces jointes
 %\encl{}
 
+\vspace{2cm}
+
+Tu peux maintenant légitimement te demander comment j'ai pu taper
+cette magnifique lettre sans Word. J'ai en effet utilisé \LaTeX, un
+logiciel de mise en page pour les nains formaticiens et les
+scientifiques en général.
+
+La marche à suivre est très simple~: il faut disposer de la classe
+\texttt{lettre} (disponible dans la plupart des distributions \LaTeX),
+de la classe \texttt{supaero-lettre} que j'ai créée et qui en dérive
+et du fichier \texttt{supaero.ins} que tu pourras modifier pour mettre
+ton nom, ton propre numéro de téléphone etc. Je te conseille de lire
+la documentation du paquetage \texttt{lettre}
+(\url{http://www.ctan.org/tex-archive/help/Catalogue/entries/lettre.html}).
+
+Le code source de cette lettre est disponible ci-après. Tu verras donc
+que pour les fax, c'est le même principe.
+
+\verbatiminput{exempleLettre.tex}
+
 \end{letter}
+
+\begin{telefax}{+01-555-7456542}{Bill Gates\\Micro\$oft\\Redmond\\USA}
+  
+\name{Christophe Garion}
+
+\conc{qualité des logiciels de votre entreprise}
+
+\opening{Cher M. Gates,}
+
+Je trouve que la qualité de vos logiciels laisse plus qu'à désirer.
+
+\closing{Je ne vous salue pas}
+
+\end{telefax}
 \end{document}

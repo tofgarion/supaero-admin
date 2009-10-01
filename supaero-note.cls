@@ -9,8 +9,8 @@
 
 % This class extends the article class
 % Read all the documentclass options; pass them to article,
-% unless the file "<currentoption>.min" exists, then it is loaded
-\DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
+% unless the file "<currentoption>.sup" exists, then it is loaded
+\DeclareOption*{\InputIfFileExists{\CurrentOption.sup}{}{%
     \PassOptionsToClass{\CurrentOption}{article}}}
 \ExecuteOptions{a4paper,11pt}
 \ProcessOptions \relax
