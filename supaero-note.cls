@@ -29,6 +29,8 @@
   \setcounter{page}\@ne
 }%
 
+\newcommand{\numero@internal}{}
+\newcommand{\numero}[1]{\renewcommand{\numero@internal}{#1}}
 \newcommand{\objet@internal}{}
 \newcommand{\objet}[1]{\renewcommand{\objet@internal}{#1}}
 \newcommand{\destinataires@internal}{}
@@ -65,6 +67,10 @@
   \end{minipage}\hfill\vrule\hfill
   \begin{minipage}[t]{0.5\linewidth}
     \large
+    {\textbf{\underline{Num\'ero~:}}} \numero@internal
+
+    \vskip 20\p@
+
     {\textbf{\underline{Objet~:}}}
     
     \vskip 5\p@

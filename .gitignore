@@ -1,4 +1,7 @@
 *.aux
+*.pdf
+*.odt
+*.tns
 *.bbl
 *.blg
 *.out
