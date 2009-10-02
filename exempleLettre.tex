@@ -86,6 +86,10 @@ tout cela.
 
 % pièces jointes
 %\encl{}
+\cc{DFS}
+\ps{PS:}{je tiens à préciser qu'Ausias Gamisans possède un BAC scientifique
+acquis de haute volée et est donc parfaitement au courant de ces
+notions.}
 
 \vspace{2cm}
 
@@ -100,7 +104,15 @@ de la classe \texttt{supaero-lettre} que j'ai créée et qui en dérive
 et du fichier \texttt{supaero.ins} que tu pourras modifier pour mettre
 ton nom, ton propre numéro de téléphone etc. Je te conseille de lire
 la documentation du paquetage \texttt{lettre}
-(\url{http://www.ctan.org/tex-archive/help/Catalogue/entries/lettre.html}).
+(\url{http://www.ctan.org/tex-archive/help/Catalogue/entries/lettre.html}). Toutes
+les commandes définies dans \texttt{supaero.ins} peuvent être
+redéfinie dans le corps de la lettre pour la personnaliser. Par
+exemple, tu trouveras dans la suite une lettre en anglais.
+
+Attention, j'utilise l'option \texttt{origdate} qui permet de
+conserver pour la date de la lettre la date de création du fichier. Si
+tu veux la modifier, détruis le fichier qui porte le même nom que ton
+fichier source mais avec l'extension \texttt{odt}.
 
 Le code source de cette lettre est disponible ci-après. Tu verras donc
 que pour les fax, c'est le même principe.
@@ -109,9 +121,25 @@ que pour les fax, c'est le même principe.
 
 \end{letter}
 
+\begin{letter}{Ausias Gamisans\\ Associate Professor of Espagnolo Facilo\\ISAE/LACS}
+
+\anglais
+
+\signature{Christophe Garion}
+
+\Nref{2009BLABLA}
+
+\conc{our previous meeting}
+
+\opening{Dear Ausias,}
+
+Blablablablablablablablablabla.
+
+\closing{Sincerely yours,}
+
+\end{letter}
+
 \begin{telefax}{+01-555-7456542}{Bill Gates\\Micro\$oft\\Redmond\\USA}
-  
-\name{Christophe Garion\\Professeur Associé d'Informatique\\ISAE/DMIA - SUPAERO/IN}
 
 \conc{qualité des logiciels de votre entreprise}
 
@@ -119,7 +147,7 @@ que pour les fax, c'est le même principe.
 
 Je trouve que la qualité de vos logiciels laisse plus qu'à désirer.
 
-\closing{Je ne vous salue pas}
+\closing{Je ne vous salue pas.}
 
 \end{telefax}
 \end{document}
