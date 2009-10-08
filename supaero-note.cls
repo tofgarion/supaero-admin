@@ -17,8 +17,8 @@
 \LoadClass{article}
 
 % page layout
-\RequirePackage[hscale=0.85, vscale=0.9,
-                includeheadfoot]{geometry}
+\RequirePackage[hscale=0.85, vscale=0.92,
+                top=20pt, includeheadfoot]{geometry}
 
 % title page
 \RequirePackage[pdftex]{graphicx}
