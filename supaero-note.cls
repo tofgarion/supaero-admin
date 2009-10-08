@@ -17,7 +17,7 @@
 \LoadClass{article}
 
 % page layout
-\RequirePackage[hscale=0.85, vscale=0.95,
+\RequirePackage[hscale=0.85, vscale=0.9,
                 includeheadfoot]{geometry}
 
 % title page
