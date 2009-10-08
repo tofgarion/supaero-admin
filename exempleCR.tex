@@ -1,0 +1,96 @@
+\documentclass[cr]{supaero-mins}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{url}
+\usepackage{verbatim}
+
+\begin{document}
+
+\title{Réunion entre C. Garion et lui-même sur \LaTeX}
+\author{C. Garion}
+\date{\today}
+
+\present{C. Garion}
+\absent{D. Matignon, E. Zenou}
+\alsopresent{S. Garion (pour embêter son père quand il travaille)}
+
+\maketitle
+
+\begin{objectifs}
+\item proposer une classe \LaTeX permettant d'écrire facilement des
+  comptes-rendus de réunions
+\item écrire un petit exemple montrant les possibilités offertes par
+  la classe
+\item éradiquer Word comme outil de rédaction de compte-rendus
+\item perdre mon temps alors que j'ai d'autres chats à fouetter (aïe)
+\end{objectifs}
+
+\begin{crlist}{Chargement de la classe et dimensions}
+\item la classe s'appelle \texttt{supaero-mins}\footnote{mins pour
+    minutes, en anglais dans le texte. C'est aussi parce que la classe
+  dont je me suis inspiré porte ce nom.}
+\item les dimensions des pages sont réglées grâce au paquetage
+  \texttt{geometry}. On pourra se référer à sa documentation pour
+  l'utiliser.
+\end{crlist}
+
+\begin{crlist}{Entêtes et pieds de page}
+\item les entêtes et pieds de page sont définis grâce au paquetage
+  \texttt{fancyhdr}. On dispose donc des commandes habituelles de ce
+  paquetage pour les redéfinir.
+\end{crlist}
+
+\begin{crlist}{Page de titre et commandes utiles}
+\item la page de titre est définie grâce aux éléments suivants:
+
+  \begin{itemize}
+  \item la commande \verb!\title{}! permet de donner le titre
+  \item la commande \verb!\author{}! permet de donner le nom du
+    rédacteur du document
+  \item la commande \verb!\date{}! permet de donner la date de la
+    réunion
+  \item la commande \verb!\members{}! permet de donner les personnes
+    qui étaient conviées à la réunion
+  \item la commande \verb!\present{}! permet de donner la liste des
+    personnes conviées présentes
+  \item la commande \verb!\absent{}! permet de donner la liste des
+    personnes conviées absentes
+  \item la commande \verb!\alsopresent{}! permet de donner la liste
+    des personnes présentes et qui n'étaient pas conviées au départ
+  \end{itemize}
+
+\item la commande \verb!mintitle! permet de donner un titre à une
+  «~section~» du compte-rendu.
+\item on dispose également d'un environnement \verb!crenum! qui
+  s'utilise comme \verb!enumerate! en donnant en plus un titre pour la
+  «~section~».
+\item on dispose également d'un environnement \verb!crlist! qui
+  s'utilise comme \verb!itemize! en donnant en plus un titre pour la
+  «~section~».
+\item enfin, \verb!crlist! a été utilisé pour créer deux
+  environnements: \verb!objectifs! et \verb!actions!.
+\end{crlist}
+
+\begin{crlist}{Fichier de déclaration}
+\item lorsque l'on utilise souvent la même définition pour une
+  commande (\verb!author! typiquement), on peut définir tout cela dans
+  un fichier séparé possédant l'extension \verb!.sup!.
+\item il suffit alors de passer en option de \verb!documentclass! le
+  nom de ce fichier sans extension (cf. présent document par exemple).
+\end{crlist}
+
+\mintitle{Code source de la présente note}
+
+\verbatiminput{exempleCR.tex}
+
+\mintitle{Code source de la classe}
+
+\verbatiminput{supaero-mins.cls}
+
+\begin{actions}
+\item C. Garion diffuse la classe et les exemples
+\item les personnes intéressées font des retours éventuels sur la
+  classe
+\end{actions}
+\end{document}
