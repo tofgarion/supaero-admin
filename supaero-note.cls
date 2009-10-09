@@ -7,6 +7,38 @@
 \ProvidesClass{supaero-note}[2009/09/29 v0.1 
                LaTeX document class for SUPAERO note]
 
+\global\let\numero@internal\@empty
+\newcommand{\numero}[1]{\def\numero@internal{#1}}
+\global\let\objet@internal\@empty
+\newcommand{\objet}[1]{\def\objet@internal{#1}}
+\global\let\destinataires@internal\@empty
+\newcommand{\destinataires}[1]{\def\destinataires@internal{#1}}
+\global\let\motscles@internal\@empty
+\newcommand{\motscles}[1]{\def\motscles@internal{#1}}
+\global\let\revisions@internal\@empty
+\newcommand{\revisions}[1]{\def\revisions@internal{#1}}
+
+\def\textrhead@internal{
+  DFS~: M. Samuelides
+}
+\newcommand{\textrhead}[1]{\def\textrhead@internal{#1}}
+
+\def\textlhead@internal{
+Direction de la Formation SUPAERO
+}
+\newcommand{\textlhead}[1]{\def\textlhead@internal{#1}}
+
+\def\textchead@internal{
+  Institut Sup\'erieur de l'A\'eronautique et de l'Espace
+}
+\newcommand{\textchead}[1]{\def\textchead@internal{#1}}
+
+\def\textlhead@other@internal{ISAE/DFS}
+\newcommand{\textlheadother}[1]{\renewcommand{\textlhead@other@internal}{#1}}
+
+\def\textrhead@other@internal{\@title , \@author}
+\newcommand{\textrheadother}[1]{\renewcommand{\textrhead@other@internal}{#1}}
+
 % This class extends the article class
 % Read all the documentclass options; pass them to article,
 % unless the file "<currentoption>.sup" exists, then it is loaded
@@ -28,18 +60,6 @@
   \@restonecolfalse\newpage
   \setcounter{page}\@ne
 }%
-
-\newcommand{\numero@internal}{}
-\newcommand{\numero}[1]{\renewcommand{\numero@internal}{#1}}
-\newcommand{\objet@internal}{}
-\newcommand{\objet}[1]{\renewcommand{\objet@internal}{#1}}
-\newcommand{\destinataires@internal}{}
-\newcommand{\destinataires}[1]{\renewcommand{\destinataires@internal}{#1}}
-\newcommand{\motscles@internal}{}
-\newcommand{\motscles}[1]{\renewcommand{\motscles@internal}{#1}}
-\newcommand{\revisions@internal}{}
-\newcommand{\revisions}[1]{\renewcommand{\revisions@internal}{#1}}
-
 
 \renewcommand\maketitle{
   \begin{titlepage}
@@ -115,35 +135,34 @@
 
 % header and footer
 \RequirePackage{fancyhdr}
-
-\newcommand{\textrhead@internal}{
-  DFS~: M. Samuelides
-}
-\newcommand{\textrhead}[1]{\renewcommand{\textrhead@internal}{#1}}
-
-\newcommand{\textlhead@internal}{
-Direction de la Formation SUPAERO
-}
-\newcommand{\textlhead}[1]{\renewcommand{\textlhead@internal}{#1}}
-
-\newcommand{\textchead@internal}{
-  Institut Sup\'erieur de l'A\'eronautique et de l'Espace
-}
-\newcommand{\textchead}[1]{\renewcommand{\textchead@internal}{#1}}
-
-\pagestyle{fancy}
-\lhead{\raggedright\parbox[b]{0.2\headwidth}{\centering\textlhead@internal}}
-\chead{\parbox[b]{0.3\headwidth}{\centering\textchead@internal}}
-\rhead{\parbox[b]{0.3\headwidth}{\raggedleft\textrhead@internal}}
-
-\renewcommand{\footrulewidth}{0.4pt}
-\lfoot{\footnotesize Ce document est la propri\'et\'e de l'ISAE.\\
-Les informations qu'il contient ne peuvent \^etre utilis\'ees, reproduites
-ou communiqu\'ees sans son accord pr\'ealable \'ecrit.}
-\cfoot{}
-
 \RequirePackage{lastpage}
-\rfoot{\thepage/\pageref{LastPage}}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+  \lhead{\raggedright\parbox[b]{0.2\headwidth}{\centering\textlhead@internal}}
+  \chead{\parbox[b]{0.3\headwidth}{\centering\textchead@internal}}
+  \rhead{\parbox[b]{0.3\headwidth}{\raggedleft\textrhead@internal}}
+
+  \lfoot{\footnotesize Ce document est la propri\'et\'e de l'ISAE.\\
+    Les informations qu'il contient ne peuvent \^etre utilis\'ees, reproduites
+    ou communiqu\'ees sans son accord pr\'ealable \'ecrit.}
+  \rfoot{\thepage/\pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+\fancypagestyle{followingpage}{%
+  \fancyhf{}
+  \lhead{\raggedright\parbox[b]{0.2\headwidth}{\raggedright\textlhead@other@internal}}
+  \rhead{\parbox[b]{0.7\headwidth}{\raggedleft\textrhead@other@internal}}
+  \lfoot{\footnotesize Ce document est la propri\'et\'e de l'ISAE.\\
+    Les informations qu'il contient ne peuvent \^etre utilis\'ees, reproduites
+    ou communiqu\'ees sans son accord pr\'ealable \'ecrit.}
+  \rfoot{\thepage/\pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+\pagestyle{followingpage}
+\AtBeginDocument{\thispagestyle{firstpage}}
 
 % default font
 \renewcommand\familydefault{cmss}
