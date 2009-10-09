@@ -34,6 +34,12 @@
 \let\alsopresent\setalsopresent %
 \newcommand{\show@alsopresent}{\@alsopresent}
 
+\def\textlhead@internal{ISAE/DFS}
+\newcommand{\textlhead}[1]{\renewcommand{\textlhead@internal}{#1}}
+
+\def\textrhead@internal{\@title , \@date}
+\newcommand{\textrhead}[1]{\renewcommand{\textrhead@internal}{#1}}
+
 % This class extends the article class
 % Read all the documentclass options; pass them to article,
 % unless the file "<currentoption>.sup" exists, then it is loaded
@@ -101,12 +107,6 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 
-\def\textlhead@internal{\includegraphics[width=0.1\textwidth]{VL_SUPAERO_72_cmjn.png}}
-\newcommand{\textlhead}[1]{\renewcommand{\textlhead@internal}{#1}}
-
-\def\textrhead@internal{\@title , \@date}
-\newcommand{\textrhead}[1]{\renewcommand{\textrhead@internal}{#1}}
-
 \fancypagestyle{firstpage}{%
   \fancyhf{}
   \lfoot{\footnotesize Ce document est la propri\'et\'e de l'ISAE.\\
@@ -118,7 +118,7 @@
 }
 \fancypagestyle{followingpage}{%
   \fancyhf{}
-  \lhead{\raggedright\parbox[b]{0.2\headwidth}{ISAE/DFS}}
+  \lhead{\raggedright\parbox[b]{0.2\headwidth}{\raggedright\textlhead@internal}}
   \rhead{\parbox[b]{0.7\headwidth}{\raggedleft\textrhead@internal}}
   \lfoot{\footnotesize Ce document est la propri\'et\'e de l'ISAE.\\
     Les informations qu'il contient ne peuvent \^etre utilis\'ees, reproduites
