@@ -12,7 +12,7 @@ install:	init
 init: 	$(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin
 	@echo "copying files"
 	cp supaero-note.cls supaero-mins.cls supaero-lettre.cls \
-	   supaero.ins VL_SUPAERO_72_cmjn.png $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin
+	   supaero.ins VL_SUPAERO_72_cmjn.png footletter.jpg $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin
 	cp exempleCR.tex cr.sup exempleLettre.tex exempleNote.tex supaero.bib \
 	   $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin
 
