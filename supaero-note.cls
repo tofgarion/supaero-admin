@@ -19,7 +19,7 @@
 \newcommand{\revisions}[1]{\def\revisions@internal{#1}}
 
 \def\textrhead@internal{
-  DFS~: M. Samuelides
+  DFS: M. Samuelides
 }
 \newcommand{\textrhead}[1]{\def\textrhead@internal{#1}}
 
@@ -46,11 +46,18 @@ Direction de la Formation SUPAERO
     \PassOptionsToClass{\CurrentOption}{article}}}
 \ExecuteOptions{a4paper,11pt}
 \ProcessOptions \relax
+\RequirePackage{atbegshi}
 \LoadClass{article}
 
 % page layout
 \RequirePackage[hscale=0.85, vscale=0.92,
                 top=20pt, includeheadfoot]{geometry}
+
+% babel for languages
+\RequirePackage{babel}
+
+% microtype for spacing
+\RequirePackage[babel=true,kerning=true]{microtype} 
 
 % title page
 \RequirePackage[pdftex]{graphicx}
@@ -81,17 +88,17 @@ Direction de la Formation SUPAERO
 
   \begin{minipage}[t]{0.4\linewidth}
     \large
-    {\textbf{\underline{Sommaire~:}}}
+    {\textbf{\underline{Sommaire:}}}
 
     \@starttoc{toc}
   \end{minipage}\hfill\vrule\hfill
   \begin{minipage}[t]{0.5\linewidth}
     \large
-    {\textbf{\underline{Num\'ero~:}}} \numero@internal
+    {\textbf{\underline{Num\'ero:}}} \numero@internal
 
     \vskip 20\p@
 
-    {\textbf{\underline{Objet~:}}}
+    {\textbf{\underline{Objet:}}}
     
     \vskip 5\p@
 
@@ -99,7 +106,7 @@ Direction de la Formation SUPAERO
 
     \vskip 20\p@
 
-    {\textbf{\underline{Destinataires~:}}}
+    {\textbf{\underline{Destinataires:}}}
     
     \vskip 5\p@
 
@@ -107,7 +114,7 @@ Direction de la Formation SUPAERO
 
     \vskip 20\p@
 
-    {\textbf{\underline{Mots-cl\'es~:}}}
+    {\textbf{\underline{Mots-cl\'es:}}}
     
     \vskip 5\p@
 
@@ -127,7 +134,7 @@ Direction de la Formation SUPAERO
   \end{tabular*}
 
   \vskip 40\p@
-  {\Large \textbf{R\'edacteur~:} \@author}
+  {\Large \textbf{R\'edacteur:} \@author}
 
   \newpage
   \end{titlepage}

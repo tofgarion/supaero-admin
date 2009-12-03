@@ -13,7 +13,14 @@
 \DeclareOption*{\InputIfFileExists{\CurrentOption.sup}{}{%
     \PassOptionsToClass{\CurrentOption}{lettre}}}
 \ProcessOptions \relax
+\RequirePackage{atbegshi}
 \LoadClass{lettre}
+
+% babel for languages
+\RequirePackage{babel}
+
+% microtype for spacing
+\RequirePackage[babel=true,kerning=true]{microtype} 
 
 % default font
 \DeclareOldFontCommand{\rm}{\sffamily}{\mathsf}

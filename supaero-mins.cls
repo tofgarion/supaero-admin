@@ -47,11 +47,18 @@
     \PassOptionsToClass{\CurrentOption}{article}}}
 \ExecuteOptions{a4paper,11pt}
 \ProcessOptions \relax
+\RequirePackage{atbegshi}
 \LoadClass{article}
 
 % page layout
 \RequirePackage[hscale=0.85, vscale=0.9,
                 top=20pt, includeheadfoot]{geometry}
+
+% babel for languages
+\RequirePackage{babel}
+
+% microtype for spacing
+\RequirePackage[babel=true,kerning=true]{microtype} 
 
 % title page
 \RequirePackage[pdftex]{graphicx}
@@ -79,22 +86,22 @@
   \vskip 20\p@
 
   \begin{description}
-  \item[R\'edacteur~:] \@author
+  \item[R\'edacteur:] \@author
   \ifx\@members\@empty
     \relax
   \else
-    \item[Membres~:] \show@members
+    \item[Membres:] \show@members
   \fi %
-  \item[Pr\'esents~:] \show@present
+  \item[Pr\'esents:] \show@present
   \ifx\@absent\@empty
     \relax
   \else
-    \item[Absents~:] \show@absent
+    \item[Absents:] \show@absent
   \fi %
   \ifx\@alsopresent\@empty
     \relax
   \else
-    \item[\'Egalement pr\'esents~:] \show@alsopresent
+    \item[\'Egalement pr\'esents:] \show@alsopresent
   \fi %
   \end{description}
 
