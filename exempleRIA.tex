@@ -1,11 +1,95 @@
 \documentclass[french]{supaero-ria}
 
 \usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{bibtopic}
+\usepackage{url}
+\usepackage[pdftex]{hyperref}
 
 \begin{document}
 
 \author{Christophe Garion}
+\dep{DMIA}
+\ur{MARS}
+\formation{SUPAERO}
+\uf{IN}
+
 \date{2009}
 
-blabla
+\newens{Rien de bien nouveau sous le soleil.}
+
+\modules{
+
+  \subsubsection{Responsabilité de modules et enseignement}
+  \label{sec:resp-de-modul}
+
+  \hspace{1cm}\begin{tabular}[h]{l l l l }
+    \toprule[1.5pt]
+    Code & Intitulé & Volume & Commentaires\\
+    \midrule
+    IN600 & \LaTeX avancé & 40h & en collaboration avec EZ\\
+    IN001 & Comment allumer un ordinateur? & 40h & \\
+    \bottomrule[1.5pt]
+  \end{tabular}
+
+  \subsubsection{Participation à modules}
+  \label{sec:part-modul}
+
+  \hspace{1cm}\begin{tabular}[h]{l l l l }
+    \toprule[1.5pt]
+    Code & Intitulé & Volume & Commentaires\\
+    \midrule
+    IN732 & Super compliqué & 40h & je n'ai rien fait pour le
+    module, mais j'ai participé à une réunion\\
+    \bottomrule[1.5pt]
+  \end{tabular}
+}
+
+\encadrement{J'ai effectivement fait travailler les élèves comme des
+  esclaves pour mon intérêt personnel (lavage de voiture, courses etc.)}
+
+\ingenierie{J'ai beaucoup ingénieré cette année.}
+
+\wishens{J'aimerais bien ne plus avoir de copies à corriger dorénavant.}
+
+\actrech{J'ai beaucoup cherché, peu trouvé.}
+
+\animation{Participation importante aux pots de thèses, d'HDR et de
+  départs à la retraite.}
+
+\pub{
+
+\nocite{garion09a,garion09b,garion09c}
+
+\begin{btSect}{review}
+  \subsection*{Publications avec comité de lecture familial}
+  \btPrintCited
+\end{btSect}
+
+\begin{btSect}{woreview}
+  \subsection*{Publications sans comité de lecture}
+  \btPrintCited
+\end{btSect}
+}
+
+\whatelse{J'aime bien jouer au football.}
+
+\misc{ Si on ne remplit pas un champ, comme par exemple
+  \texttt{newens} si on n'a pas de nouveautés en ce qui concerne
+  l'enseignement, celui-ci n'apparaîtra pas dans le RIA.
+
+  Comme pour les autres classes (CR de réunion, notes, lettre), on
+  peut utiliser un fichier de configuration avec l'extension
+  \texttt{.sup} et passer son nom en option de \texttt{documentclass}.
+
+  Pour faire une bibliographie par thème, j'utilise le paquetage
+  \texttt{bibtopic}. Il ne faut pas alors oublié d'appeler
+  \texttt{bibtex} sur les fichiers \texttt{.aux} supplémentaires
+  produits. On peut également utiliser l'utilitaire \texttt{bib2bib}
+  pour produire différents fichiers BibTeX par types de publication,
+  cf. \url{http://www.lri.fr/~filliatr/bibtex2html/}.  
+}
+
+\body
+
 \end{document}

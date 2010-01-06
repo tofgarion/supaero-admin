@@ -20,6 +20,61 @@
 \def\uf@internal{IN}
 \newcommand{\uf}[1]{\def\uf@internal{#1}}
 
+\global\let\@newens\@empty
+\newcommand{\setnewens}[1]{\def\@newens{#1}}
+\let\newens\setnewens %
+\newcommand{\show@newens}{\@newens}
+
+\global\let\@modules\@empty
+\newcommand{\setmodules}[1]{\def\@modules{#1}}
+\let\modules\setmodules %
+\newcommand{\show@modules}{\@modules}
+
+\global\let\@encadrement\@empty
+\newcommand{\setencadrement}[1]{\def\@encadrement{#1}}
+\let\encadrement\setencadrement %
+\newcommand{\show@encadrement}{\@encadrement}
+
+\global\let\@ingenierie\@empty
+\newcommand{\setingenierie}[1]{\def\@ingenierie{#1}}
+\let\ingenierie\setingenierie %
+\newcommand{\show@ingenierie}{\@ingenierie}
+
+\global\let\@wishens\@empty
+\newcommand{\setwishens}[1]{\def\@wishens{#1}}
+\let\wishens\setwishens %
+\newcommand{\show@wishens}{\@wishens}
+
+\global\let\@actrech\@empty
+\newcommand{\setactrech}[1]{\def\@actrech{#1}}
+\let\actrech\setactrech %
+\newcommand{\show@actrech}{\@actrech}
+
+\global\let\@animation\@empty
+\newcommand{\setanimation}[1]{\def\@animation{#1}}
+\let\animation\setanimation %
+\newcommand{\show@animation}{\@animation}
+
+\global\let\@persprech\@empty
+\newcommand{\setpersprech}[1]{\def\@persprech{#1}}
+\let\persprech\setpersprech %
+\newcommand{\show@persprech}{\@persprech}
+
+\global\let\@pub\@empty
+\newcommand{\setpub}[1]{\def\@pub{#1}}
+\let\pub\setpub %
+\newcommand{\show@pub}{\@pub}
+
+\global\let\@whatelse\@empty
+\newcommand{\setwhatelse}[1]{\def\@whatelse{#1}}
+\let\whatelse\setwhatelse %
+\newcommand{\show@whatelse}{\@whatelse}
+
+\global\let\@misc\@empty
+\newcommand{\setmisc}[1]{\def\@misc{#1}}
+\let\misc\setmisc %
+\newcommand{\show@misc}{\@misc}
+
 % This class extends the article class
 % Read all the documentclass options; pass them to article,
 % unless the file "<currentoption>.sup" exists, then it is loaded
@@ -32,7 +87,7 @@
 
 % page layout
 \RequirePackage[hscale=0.85, vscale=0.92,
-                top=10pt, headheight=65pt, includeheadfoot]{geometry}
+                top=10pt, headheight=70pt, includeheadfoot]{geometry}
 
 % babel for languages
 \RequirePackage{babel}
@@ -85,3 +140,115 @@
 
 % default font
 \renewcommand\familydefault{cmss}
+
+% no indentation
+\setlength{\parindent}{0in}
+
+% command to build the document
+\newcommand{\body}{
+\section{Enseignement}
+\label{sec:enseignement}
+
+\ifx\@newens\@empty
+  \relax
+\else
+  \subsection{Nouveaut\'es et observations}
+  \label{sec:nouveautes-observations}
+
+  \show@newens
+\fi %
+
+\ifx\@modules\@empty
+  \relax
+\else
+  \subsection{Modules d'enseignements}
+  \label{sec:modules}
+
+  \show@modules
+\fi %
+
+\ifx\@encadrement\@empty
+  \relax
+\else
+  \subsection{Encadrement}
+  \label{sec:encadrement}
+
+  \show@encadrement
+\fi %
+
+\ifx\@ingenierie\@empty
+  \relax
+\else
+  \subsection{Ing\'enierie p\'edagogique}
+  \label{sec:ing-pedagogique}
+
+  \show@ingenierie
+\fi %
+
+\ifx\@wishens\@empty
+  \relax
+\else
+  \subsection{Souhaits d'\'evolution pour l'ann\'ee \`a venir et \`a
+    moyen terme}
+  \label{sec:wishens}
+
+  \show@wishens
+\fi %
+
+\section{Recherche}
+\label{sec:recherche}
+
+\ifx\@actrech\@empty
+  \relax
+\else
+  \subsection{Activit\'es de recherche}
+  \label{sec:actrecherche}
+
+  \show@actrech
+\fi %
+
+\ifx\@animation\@empty
+  \relax
+\else
+  \subsection{Animation scientifique et gestion de la recherche}
+  \label{sec:animation-scientifique}
+
+  \show@animation
+\fi %
+
+\ifx\@persprech\@empty
+  \relax
+\else
+  \subsection{Perspectives \`a un an et \`a moyen terme}
+  \label{sec:pers-rech}
+
+  \show@persprech
+\fi %
+
+\ifx\@pub\@empty
+  \relax
+\else
+  \section{Publications de l'ann\'ee civile de r\'ef\'erence et de la pr\'ec\'edente}
+  \label{sec:pub}
+
+  \show@pub
+\fi %
+
+\ifx\@whatelse\@empty
+  \relax
+\else
+  \section{Autres activit\'es}
+  \label{sec:autres-activites}
+  
+  \show@whatelse
+\fi %
+
+\ifx\@misc\@empty
+  \relax
+\else
+  \section{Points particuliers}
+  \label{sec:points-particuliers}
+
+  \show@misc
+\fi %
+}
