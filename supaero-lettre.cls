@@ -22,6 +22,9 @@
 % microtype for spacing
 \RequirePackage[babel=true,kerning=true]{microtype} 
 
+% url package for email adress
+\RequirePackage{url}
+
 % default font
 \DeclareOldFontCommand{\rm}{\sffamily}{\mathsf}
 \renewcommand\familydefault{cmss}
