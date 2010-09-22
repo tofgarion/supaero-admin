@@ -1,12 +1,12 @@
 %% ISAE/SUPAERO document class for official minutes
-%% C. Garion, 2009
+%% C. Garion, 2009, 2010
 %%
 %% Mostly taken from article.cls and "Rolling your own Document Class:
 %% Using LaTeX to keep away from the Dark Side" by Peter Flynn and
 %% "Minutes in Less than Hours: Using LaTeX Resources" by Jim
 %% Hefferon
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{supaero-mins}[2009/09/29 v0.1 
+\ProvidesClass{supaero-mins}[2010/09/22 v0.2
                LaTeX document class for SUPAERO minutes]
 
 % definitions need to be here to be processed by the .sup file
@@ -37,7 +37,7 @@
 \def\textlhead@internal{ISAE/DFS}
 \newcommand{\textlhead}[1]{\renewcommand{\textlhead@internal}{#1}}
 
-\def\textrhead@internal{\@title , \@date}
+\def\textrhead@internal{\shorttitle , \@date}
 \newcommand{\textrhead}[1]{\renewcommand{\textrhead@internal}{#1}}
 
 % This class extends the article class
@@ -69,6 +69,12 @@
   \setcounter{page}\@ne
 }%
 
+\renewcommand\title{\@dblarg\mytitlecmd}
+\long\def\mytitlecmd[#1]#2{%
+  \def\mytitle{#2}%
+  \def\shorttitle{#1}%
+}
+
 \renewcommand\maketitle{
   \begin{titlepage}
 
@@ -80,7 +86,7 @@
                                                                 {VL_SUPAERO_72_cmjn.png}}}
       \hskip 15\p@ 
       \parbox{\textwidth}{\centering \parbox{0.6\textwidth}{\centering
-          \Large \@title \\ \@date}}}
+          \Large \mytitle \\ \@date}}}
   \end{center}
 
   \vskip 20\p@

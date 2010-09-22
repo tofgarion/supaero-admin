@@ -1,10 +1,10 @@
 %% ISAE/SUPAERO document class for official notes
-%% C. Garion, 2009
+%% C. Garion, 2009, 2010
 %%
 %% Mostly taken from article.cls and "Rolling your own Document Class:
 %% Using LaTeX to keep away from the Dark Side" by Peter Flynn
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{supaero-note}[2009/09/29 v0.1 
+\ProvidesClass{supaero-note}[2010/09/22 v0.2 
                LaTeX document class for SUPAERO note]
 
 \global\let\numero@internal\@empty
@@ -36,7 +36,7 @@ Direction de la Formation SUPAERO
 \def\textlhead@other@internal{ISAE/DFS}
 \newcommand{\textlheadother}[1]{\renewcommand{\textlhead@other@internal}{#1}}
 
-\def\textrhead@other@internal{\@title , \@author}
+\def\textrhead@other@internal{\shorttitle , \@author}
 \newcommand{\textrheadother}[1]{\renewcommand{\textrhead@other@internal}{#1}}
 
 % This class extends the article class
@@ -68,6 +68,12 @@ Direction de la Formation SUPAERO
   \setcounter{page}\@ne
 }%
 
+\renewcommand\title{\@dblarg\mytitlecmd}
+\long\def\mytitlecmd[#1]#2{%
+  \def\mytitle{#2}%
+  \def\shorttitle{#1}%
+}
+
 \renewcommand\maketitle{
   \begin{titlepage}
 
@@ -75,7 +81,7 @@ Direction de la Formation SUPAERO
   \vskip 10\p@
 
   \begin{center}%
-    {\huge \@title \par}%
+    {\huge \mytitle \par}%
   \end{center}
 
   \vskip 30\p@

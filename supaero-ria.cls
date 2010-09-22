@@ -4,7 +4,7 @@
 %% Mostly taken from article.cls and "Rolling your own Document Class:
 %% Using LaTeX to keep away from the Dark Side" by Peter Flynn
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{supaero-ria}[2010/01/05 v0.1 
+\ProvidesClass{supaero-ria}[2010/09/22 v0.2 
                LaTeX document class for SUPAERO annual report]
 
 
@@ -94,15 +94,14 @@
 
 % microtype for spacing
 \RequirePackage[babel=true,kerning=true]{microtype}
-% fancy tables
-%\RequirePackage{booktabs}
-%\midrule[1pt]
 
+% fancy tables
+\RequirePackage{booktabs}
 
 % multirow for header
 \RequirePackage{multirow}
 
-% title page
+% graphics
 \RequirePackage[pdftex]{graphicx}
 
 % header and footer
