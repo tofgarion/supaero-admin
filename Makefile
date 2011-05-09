@@ -11,10 +11,11 @@ install:	init
 
 init: 	$(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin
 	@echo "copying files"
-	cp supaero-note.cls supaero-mins.cls supaero-lettre.cls supaero-ria.cls \
-	   supaero.ins VL_SUPAERO_72_cmjn.png footletter.jpg $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin
+	cp supaero-note.cls supaero-mins.cls supaero-lettre.cls supaero-ria.cls  \
+	   supaero-note-cf.cls supaero.ins VL_SUPAERO_72_cmjn.png footletter.jpg \
+	   $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin
 	cp exempleCR.tex cr.sup exempleLettre.tex exempleNote.tex supaero.bib \
-	   exempleRIA.tex review.bib woreview.bib \
+	   exempleRIA.tex exempleNoteCF.tex review.bib woreview.bib \
 	   $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin
 
 $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin:	
@@ -25,7 +26,7 @@ $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin:
 	@echo "creating ~/$(LOCAL_TEXMF)/doc/latex/supaero-admin"
 	mkdir -p $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin
 
-examples:	install exempleCR.pdf exempleNote.pdf exempleLettre.pdf exempleRIA.pdf
+examples:	install exempleCR.pdf exempleNote.pdf exempleLettre.pdf exempleRIA.pdf exempleNoteCF.pdf
 
 exempleRIA.pdf:	exempleRIA.tex
 		@echo "compiling example for RIA..."
