@@ -115,7 +115,7 @@
     \noindent\begin{tabular}[h]{| l l | c |}
       \hline
        & & \\[-1.5ex]
-      \multicolumn{2}{| p{0.8\textwidth}|}{\huge Rapport Individuel
+      \multicolumn{2}{| p{0.8\textwidth}|}{\huge \bf Rapport Individuel
         d'Activit\'e \@date} &
         \multirow{5}{*}{\includegraphics[width=0.2\textwidth]{VL_SUPAERO_72_cmjn.png}}\\[5pt]
       \large Enseignant-Chercheur & & \\
