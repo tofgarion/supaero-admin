@@ -19,7 +19,7 @@
 \newcommand{\revisions}[1]{\def\revisions@internal{#1}}
 
 \def\textrhead@internal{
-  DFS: M. Samuelides
+  DFS: M. B\'erard
 }
 \newcommand{\textrhead}[1]{\def\textrhead@internal{#1}}
 
