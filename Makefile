@@ -13,6 +13,7 @@ init: 	$(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin $(HOME)/$(LOCAL_TEXMF)/doc
 	@echo "copying files"
 	cp supaero-note.cls supaero-mins.cls supaero-lettre.cls supaero-ria.cls  \
 	   supaero-note-cf.cls supaero.ins VL_SUPAERO_72_cmjn.png footletter.jpg \
+	   sig-tof.png \
 	   $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin
 	cp exempleCR.tex cr.sup exempleLettre.tex exempleNote.tex supaero.bib \
 	   exempleRIA.tex exempleNoteCF.tex review.bib woreview.bib \
