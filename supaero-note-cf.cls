@@ -37,18 +37,25 @@
 % graphics
 \RequirePackage[pdftex]{graphicx}
 
+% title
+\renewcommand\title{\@dblarg\mytitlecmd}
+\long\def\mytitlecmd[#1]#2{%
+  \def\mytitle{#2}%
+  \def\shorttitle{#1}%
+}
+
 % header and footer
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 
-\fancypagestyle{mypage}{%
+\fancypagestyle{firstpage}{%
   \fancyhf{}
   \lhead{}
   \chead{
     \noindent\begin{tabular}[h]{| p{0.8\textwidth} | c |}
       \hline
        & \\[-1.5ex]
-      \Large \bf \@title &
+      \Large \bf \mytitle &
         \multirow{5}{*}{\includegraphics[width=0.2\textwidth]{VL_SUPAERO_72_cmjn.png}}\\[5pt]
       \cline{1-1}
        & \\[-1.5ex]
@@ -71,7 +78,23 @@
   \renewcommand{\footrulewidth}{0.4pt}
 }
 
-\pagestyle{mypage}
+\fancypagestyle{followingpage}{%
+  \fancyhf{}
+  \lhead{\raggedright\parbox[b]{0.2\headwidth}{\raggedright CP du \@date}}
+  \chead{}
+  \rhead{\parbox[b]{0.7\headwidth}{\raggedleft\shorttitle , \@author}}
+
+  \lfoot{\footnotesize Ce document est la propri\'et\'e de l'ISAE.\\
+    Les informations qu'il contient ne peuvent \^etre utilis\'ees, reproduites
+    ou communiqu\'ees sans son accord pr\'ealable \'ecrit.}
+  \rfoot{\thepage/\pageref{LastPage}}
+
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\pagestyle{followingpage}
+\AtBeginDocument{\thispagestyle{firstpage}}
 
 % default font
 \renewcommand\familydefault{cmss}
