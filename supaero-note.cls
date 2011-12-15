@@ -59,9 +59,10 @@ Direction de la Formation SUPAERO
 % microtype for spacing
 \RequirePackage[babel=true,kerning=true]{microtype} 
 
-% title page
+% insert logos
 \RequirePackage[pdftex]{graphicx}
 
+% title page
 \renewenvironment{titlepage}
 {%
   \@restonecolfalse\newpage
