@@ -28,7 +28,9 @@ $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin:
 	@echo "creating ~/$(LOCAL_TEXMF)/doc/latex/supaero-admin"
 	mkdir -p $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin
 
-examples:	install exempleCR.pdf exempleNote.pdf exempleLettre.pdf exempleRIA.pdf exempleNoteCF.pdf
+examples:	install exempleCR.pdf exempleNote.pdf \
+		exempleLettre.pdf exempleRIA.pdf \
+		exempleNoteCF.pdf exempleOrganisationCongres.pdf
 
 exempleRIA.pdf:	exempleRIA.tex
 		@echo "compiling example for RIA..."
