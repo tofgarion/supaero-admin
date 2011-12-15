@@ -61,7 +61,7 @@ CTAN~\cite{ctan} ou \cite{mittelbach04:_latex_companion}.
 La classe s'utilise très simplement. Elle est dérivée de la classe
 \texttt{article}, donc la plupart des commandes, longueurs, éléments
 de mise en page usuels s'y trouvent. Il suffit dans un premier temps
-d'utiliser \texttt{supaero-note} comme classe~:
+d'utiliser \texttt{supaero-note} comme classe:
 
 \begin{verbatim}
   \documentclass{supaero-note}
@@ -81,7 +81,7 @@ sur la page\footnote{la valeur est 0.85 par défaut.}, on peut faire:
 
 Les entêtes et pieds de page sont définis grâce au paquetage
 \texttt{fancyhdr}. On dispose donc de plusieurs commandes pour
-modifier directement les éléments~:
+modifier directement les éléments:
 
 \begin{verbatim}
   \lhead{contenu de la partie gauche de l'entête}
@@ -94,7 +94,7 @@ modifier directement les éléments~:
 
 On dispose également d'une commande spéciale pour redéfinir la partie
 droite de l'entête de la page de titre dont la valeur par défaut est
-«~DFS~: C. Bérard~»~:
+«~DFS: C. Bérard~»:
 
 \begin{verbatim}
   \textrhead{nouvelle partie droite de l'entête}
@@ -124,9 +124,9 @@ La page de titre se personnalise de la façon suivante:
   mots-clés
 \item la commande \verb!\revisions{}! permet de donner la liste des
   révisions. Chaque révision est en fait une ligne d'un tableau, donc
-  il faut utilsier \verb!&! pour séparer les colonnes du tableau,
+  il faut utiliser \verb!&! pour séparer les colonnes du tableau,
   \verb!\\! pour passer à une autre ligne et \verb!\hline! pour tracer
-  une ligne. Par exemple~:
+  une ligne. Par exemple:
 
 \begin{verbatim}
    \revisions{
@@ -143,7 +143,7 @@ Il se peut que l'on utilise souvent les mêmes destinataires etc. On
 peut avec la classe \texttt{supaero-note} utiliser un fichier
 \texttt{mon-fichier.sup} qui contient des redéfinitions (par exemple
 \verb!\author{}! etc.). Pour cela, il suffit de passer
-\verb!mon-fichier! en option de \verb!\documentclass!~:
+\verb!mon-fichier! en option de \verb!\documentclass!:
 
 \begin{verbatim}
   \documentclass[mon-fichier]{supaero-note}
