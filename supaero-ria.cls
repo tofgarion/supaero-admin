@@ -1,5 +1,5 @@
 %% ISAE/SUPAERO document class for annual report
-%% C. Garion, 2010
+%% C. Garion, 2010, 2011
 %%
 %% Mostly taken from article.cls and "Rolling your own Document Class:
 %% Using LaTeX to keep away from the Dark Side" by Peter Flynn

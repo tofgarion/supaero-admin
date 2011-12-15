@@ -1,5 +1,5 @@
 %% ISAE/SUPAERO document class for official letters and faxes
-%% C. Garion, 2009
+%% C. Garion, 2009, 2010, 2011
 %%
 %% Mostly taken from lettre.cls and "Rolling your own Document Class:
 %% Using LaTeX to keep away from the Dark Side" by Peter Flynn
