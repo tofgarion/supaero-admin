@@ -17,7 +17,8 @@ init: 	$(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin $(HOME)/$(LOCAL_TEXMF)/doc
 	   VL_SUPAERO_72_cmjn.png isae.png footletter.jpg false-sig-tof.png \
 	   $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin
 	cp exempleCR.tex cr.sup exempleLettre.tex exempleNote.tex supaero.bib \
-	   exempleRIA.tex exempleNoteCF.tex review.bib woreview.bib \
+	   exempleRIA.tex exempleNoteCF.tex exempleOrganisationCongres.tex \
+	   review.bib woreview.bib \
 	   $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin
 
 $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin:	
