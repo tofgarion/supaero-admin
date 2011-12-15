@@ -4,7 +4,7 @@
 %% Mostly taken from article.cls and "Rolling your own Document Class:
 %% Using LaTeX to keep away from the Dark Side" by Peter Flynn
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{supaero-note}[2011/12/14 v0.1 
+\ProvidesClass{supaero-orga}[2011/12/14 v0.1 
                LaTeX document class for ISAE event organization]
 
 \global\let\lieu@internal\@empty
