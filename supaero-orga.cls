@@ -45,9 +45,6 @@
 % insert logos
 \RequirePackage[pdftex]{graphicx}
 
-% TikZ
-\RequirePackage{tikz}
-
 % title page
 \renewenvironment{titlepage}
 {%
