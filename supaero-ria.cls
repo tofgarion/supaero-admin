@@ -80,6 +80,10 @@
 % unless the file "<currentoption>.sup" exists, then it is loaded
 \DeclareOption*{\InputIfFileExists{\CurrentOption.sup}{}{%
     \PassOptionsToClass{\CurrentOption}{article}}}
+\def\@requirebiblatex{}
+\DeclareOption{biblatex}{% use biblatex
+  \def\@requirebiblatex{true}%
+}%
 \ExecuteOptions{a4paper,12pt}
 \ProcessOptions \relax
 \RequirePackage{atbegshi}
@@ -142,6 +146,44 @@
 
 % no indentation
 \setlength{\parindent}{0in}
+
+% bibliography with biblatex
+\ifx\@requirebiblatex\@empty
+  \relax
+\else
+  \RequirePackage{biblatex}
+  \DeclareBibliographyCategory{journal}
+  \defbibheading{journal}{\subsection*{Articles dans des journaux
+      internationaux \`a comit\'e de lecture}}
+  \DeclareBibliographyCategory{nat-journal}
+  \defbibheading{nat-journal}{\subsection*{Articles dans des journaux
+      nationaux \`a comit\'e de lecture}}
+  \DeclareBibliographyCategory{book}
+  \defbibheading{book}{\subsection*{Livres}}
+  \DeclareBibliographyCategory{book-chapter}
+  \defbibheading{book-chapter}{\subsection*{Chapitres de livres}}
+  \DeclareBibliographyCategory{int-conf-rev}
+  \defbibheading{int-conf-rev}{\subsection*{Publications dans des
+      conf\'erences internationales avec comit\'e de lecture}}
+  \DeclareBibliographyCategory{int-conf-worev}
+  \defbibheading{int-conf-worev}{\subsection*{Publications dans des
+      conf\'erences internationales sans comit\'e de lecture}}
+  \DeclareBibliographyCategory{nat-conf-rev}
+  \defbibheading{nat-conf-rev}{\subsection*{Publications dans des
+      conf\'erences nationales avec comit\'e de lecture}}
+  \DeclareBibliographyCategory{nat-conf-worev}
+  \defbibheading{nat-conf-worev}{\subsection*{Publications dans des
+      conf\'erences nationales sans comit\'e de lecture}}
+  \DeclareBibliographyCategory{ln}
+  \defbibheading{ln}{\subsection*{Polycopi\'es de cours}}
+  \DeclareBibliographyCategory{misc}
+  \defbibheading{misc}{\subsection*{Divers}}
+
+  \pub{%
+    \nocite{*}%
+    \bibbycategory%
+  }
+\fi
 
 % command to build the document
 \newcommand{\body}{

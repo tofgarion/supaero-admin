@@ -17,8 +17,7 @@ init: 	$(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin $(HOME)/$(LOCAL_TEXMF)/doc
 	   VL_SUPAERO_72_cmjn.png isae.png footletter.jpg false-sig-tof.png \
 	   $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin
 	cp exempleCR.tex cr.sup exempleLettre.tex exempleNote.tex supaero.bib \
-	   exempleRIA.tex exempleNoteCF.tex exempleOrganisationCongres.tex \
-	   review.bib woreview.bib \
+	   exempleRIA.tex exempleRIA-biblatex.tex exempleNoteCF.tex exempleOrganisationCongres.tex \
 	   $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin
 
 $(HOME)/$(LOCAL_TEXMF)/tex/latex/supaero-admin:	
@@ -30,7 +29,7 @@ $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin:
 	mkdir -p $(HOME)/$(LOCAL_TEXMF)/doc/latex/supaero-admin
 
 examples:	install exempleCR.pdf exempleNote.pdf \
-		exempleLettre.pdf exempleRIA.pdf \
+		exempleLettre.pdf exempleRIA.pdf exempleRIA-biblatex.pdf\
 		exempleNoteCF.pdf exempleOrganisationCongres.pdf
 
 exempleRIA.pdf:	exempleRIA.tex

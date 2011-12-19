@@ -1,14 +1,13 @@
-\documentclass[french]{supaero-ria}
+\documentclass[french,biblatex]{supaero-ria}
 
 \usepackage[utf8]{inputenc}
-\usepackage{bibtopic}
 \usepackage{url}
 \usepackage[pdftex]{hyperref}
 \usepackage{ulem}
 
 \usepackage{filecontents}
 
-\begin{filecontents}{review.bib}
+\begin{filecontents}{my-publi.bib}
 @Article{garion09a,
   author =       {C. Garion},
   title =        {A new paradigm for kitchen organization},
@@ -22,14 +21,23 @@
                   objects at their parents faces},
   journal =      {Child psychology},
   year =         2009}
-\end{filecontents}
 
-\begin{filecontents}{woreview.bib}
 @Misc{garion09c,
   author =       {C. Garion},
   title =        {Mes r\'eflexions sur le sens de la vie},
   year =         2009}
 \end{filecontents}
+
+\DeclareBibliographyCategory{fam}
+\defbibheading{fam}{\subsection*{Publications avec comit\'e de
+    lecture familial}}
+\DeclareBibliographyCategory{wo}
+\defbibheading{wo}{\subsection*{Publications sans comit\'e de
+    lecture}}
+
+\addtocategory{fam}{garion09a, garion09b}
+\addtocategory{wo}{garion09c}
+\addbibresource{my-publi}
 
 \begin{document}
 
@@ -84,21 +92,6 @@
 
 \persprech{Trouver un \sout{esclave} thésard pour bosser à ma place.}
 
-\pub{
-
-\nocite{garion09a,garion09b,garion09c}
-
-\begin{btSect}{review}
-  \subsection*{Publications avec comité de lecture familial}
-  \btPrintCited
-\end{btSect}
-
-\begin{btSect}{woreview}
-  \subsection*{Publications sans comité de lecture}
-  \btPrintCited
-\end{btSect}
-}
-
 \whatelse{J'aime bien jouer au football.}
 
 \misc{ Si on ne remplit pas un champ, comme par exemple
@@ -109,15 +102,28 @@
   peut utiliser un fichier de configuration avec l'extension
   \texttt{.sup} et passer son nom en option de \texttt{documentclass}.
 
-  Pour faire une bibliographie par thème, j'utilise le paquetage
-  \texttt{bibtopic}. Il ne faut pas alors oublié d'appeler
-  \texttt{bibtex} sur les fichiers \texttt{.aux} supplémentaires
-  produits. On peut également utiliser l'utilitaire \texttt{bib2bib}
-  pour produire différents fichiers BibTeX par types de publication,
-  cf. \url{http://www.lri.fr/~filliatr/bibtex2html/}. J'ai simulé une
-  telle sortie avec le paquetage \texttt{filecontents} (cf. début du
-  fichier). Une autre solution est d'utiliser le paquetage
-  \texttt{biblatex} (cf. \texttt{exempleRIA-biblatex.tex}).  
+  Pour faire une bibliographie par thème, j'utilise ici le paquetage
+  \texttt{biblatex}. Il suffit de passer en option de la classe
+  l'option \texttt{biblatex}. On met ensuite les publications dans
+  différentes catégories. J'en ai créé deux ici pour les besoins de
+  l'exemple (cf. préambule), mais il en existe par défaut:
+
+  \begin{itemize}
+  \item \texttt{journal}: pour les journaux internationaus à comité de
+    lecture
+  \item \texttt{nat-journal}: pour les journaux nationaux à comité de
+    lecture
+  \item \texttt{book}: pour les livres
+  \item \texttt{book-chapter}: pour les chapitres de livres
+  \item \texttt{int-conf-rev}: pour les conférences internationales
+    avec comité de lecture
+  \item \texttt{int-conf-worev}: pour les conférences internationales
+    sans comité de lecture
+  \item \texttt{nat-conf-rev}: pour les conférences nationales avec
+    comité de lecture
+  \item \texttt{nat-conf-worev}: pour les conférences nationales sans
+    comité de lecture
+  \end{itemize}
 }
 
 \body
