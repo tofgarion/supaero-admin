@@ -1,21 +1,26 @@
 1. Description
 
-These three classes have been made to permit SUPAERO professors to use
-LaTeX as a text processing system for producing notes, minutes and
-letters.
+Those six classes have been made to permit SUPAERO professors to use
+LaTeX as a text processing system for producing notes, minutes,
+letters, RIA etc.
 
 The classes are:
 
  - supaero-letter for letters and faxes
  - supaero-mins for meeting minutes
  - supaero-note for notes
+ - supaero-note-cf for notes for CP (Conseil de Perfectionnement)
+ - supaero-orga for event organization
+ - supaero-ria for RIA (annual evaluation for professors)
 
 2. Usage
 
 In order to use the classes, the following files must be accessible by
 LaTeX:
 
- - the three .cls files
+ - the six .cls files
+ - footletter.jpg
+ - isae.png
  - VL_SUPAERO_72_cmjn.png
  - supaero.ins
 
