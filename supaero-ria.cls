@@ -78,20 +78,21 @@
 % This class extends the article class
 % Read all the documentclass options; pass them to article,
 % unless the file "<currentoption>.sup" exists, then it is loaded
+\PassOptionsToClass{a4paper}{article}
 \DeclareOption*{\InputIfFileExists{\CurrentOption.sup}{}{%
     \PassOptionsToClass{\CurrentOption}{article}}}
 \def\@requirebiblatex{}
 \DeclareOption{biblatex}{% use biblatex
   \def\@requirebiblatex{true}%
 }%
-\ExecuteOptions{a4paper,12pt}
 \ProcessOptions \relax
 \RequirePackage{atbegshi}
 \LoadClass{article}
 
 % page layout
 \RequirePackage[hscale=0.85, vscale=0.92,
-                top=10pt, headheight=70pt, includeheadfoot]{geometry}
+                top=25pt, headheight=70pt, 
+                includeheadfoot]{geometry}
 
 % babel for languages
 \RequirePackage{babel}
@@ -119,7 +120,7 @@
     \noindent\begin{tabular}[h]{| l l | c |}
       \hline
        & & \\[-1.5ex]
-      \multicolumn{2}{| p{0.8\textwidth}|}{\huge \bf Rapport Individuel
+      \multicolumn{2}{| p{0.75\textwidth}|}{\huge \bf Rapport Individuel
         d'Activit\'e \@date} &
         \multirow{5}{*}{\includegraphics[width=0.2\textwidth]{VL_SUPAERO_72_cmjn.png}}\\[5pt]
       \large Enseignant-Chercheur & & \\
