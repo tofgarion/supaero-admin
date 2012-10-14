@@ -15,6 +15,8 @@
 \DeclareOption{en}{\def\@language{english}}
 \DeclareOption{fr-en}{\def\@language{english,french}\def\@requirefrench{true}}
 \DeclareOption{en-fr}{\def\@language{french,english}}
+\def\@requirebiblatex{}
+\DeclareOption{biblatex}{\def\@requirebiblatex{true}}
 
 \def\dep@internal{DMIA}
 \newcommand{\dep}[1]{\def\dep@internal{#1}}
@@ -89,10 +91,6 @@
 \PassOptionsToClass{a4paper}{article}
 \DeclareOption*{\InputIfFileExists{\CurrentOption.sup}{}{%
     \PassOptionsToClass{\CurrentOption}{article}}}
-\def\@requirebiblatex{}
-\DeclareOption{biblatex}{% use biblatex
-  \def\@requirebiblatex{true}%
-}%
 \ProcessOptions \relax
 \RequirePackage{atbegshi}
 \LoadClass{article}

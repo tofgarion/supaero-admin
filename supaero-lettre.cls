@@ -14,6 +14,8 @@
 \DeclareOption{en}{\def\@language{english}}
 \DeclareOption{fr-en}{\def\@language{english,french}\def\@requirefrench{true}}
 \DeclareOption{en-fr}{\def\@language{french,english}}
+\def\@requirebiblatex{}
+\DeclareOption{biblatex}{\def\@requirebiblatex{true}}
 
 % This class extends the lettre class
 % Read all the documentclass options; pass them to article,
@@ -47,6 +49,16 @@
 
 % url package for email adress
 \RequirePackage{url}
+
+% bibliography with biblatex
+\ifx\@requirebiblatex\@empty
+  \relax
+\else
+\RequirePackage[babel]{csquotes}
+\RequirePackage[
+  style=numeric%
+  ]{biblatex}
+\fi
 
 % default font
 \DeclareOldFontCommand{\rm}{\sffamily}{\mathsf}

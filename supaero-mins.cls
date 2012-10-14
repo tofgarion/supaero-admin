@@ -16,6 +16,8 @@
 \DeclareOption{en}{\def\@language{english}}
 \DeclareOption{fr-en}{\def\@language{english,french}\def\@requirefrench{true}}
 \DeclareOption{en-fr}{\def\@language{french,english}}
+\def\@requirebiblatex{}
+\DeclareOption{biblatex}{\def\@requirebiblatex{true}}
 
 % definitions need to be here to be processed by the .sup file
 % who is meeting? 
@@ -82,6 +84,16 @@
       context  = french]%
     { encoding = {OT1,T1}, family={ul9,fvm,tt*} }%
     { }%
+
+% bibliography with biblatex
+\ifx\@requirebiblatex\@empty
+  \relax
+\else
+\RequirePackage[babel]{csquotes}
+\RequirePackage[
+  style=numeric%
+  ]{biblatex}
+\fi
 
 % title page
 \RequirePackage[pdftex]{graphicx}

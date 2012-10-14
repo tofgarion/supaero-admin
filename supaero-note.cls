@@ -14,6 +14,8 @@
 \DeclareOption{en}{\def\@language{english}}
 \DeclareOption{fr-en}{\def\@language{english,french}\def\@requirefrench{true}}
 \DeclareOption{en-fr}{\def\@language{french,english}}
+\def\@requirebiblatex{}
+\DeclareOption{biblatex}{\def\@requirebiblatex{true}}
 \def\@requirevisa{}
 \DeclareOption{visa}{\def\@requirevisa{true}}
 
@@ -122,6 +124,16 @@ Direction de la Formation SUPAERO
 
 % insert logos
 \RequirePackage[pdftex]{graphicx}
+
+% bibliography with biblatex
+\ifx\@requirebiblatex\@empty
+  \relax
+\else
+\RequirePackage[babel]{csquotes}
+\RequirePackage[
+  style=numeric%
+  ]{biblatex}
+\fi
 
 % title page
 \RequirePackage{multirow}

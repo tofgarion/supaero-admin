@@ -15,6 +15,8 @@
 \DeclareOption{en}{\def\@language{english}}
 \DeclareOption{fr-en}{\def\@language{english,french}\def\@requirefrench{true}}
 \DeclareOption{en-fr}{\def\@language{french,english}}
+\def\@requirebiblatex{}
+\DeclareOption{biblatex}{\def\@requirebiblatex{true}}
 
 \def\function@internal{}
 \newcommand{\function}[1]{\def\function@internal{#1}}
@@ -59,6 +61,16 @@
 
 % graphics
 \RequirePackage[pdftex]{graphicx}
+
+% bibliography with biblatex
+\ifx\@requirebiblatex\@empty
+  \relax
+\else
+\RequirePackage[babel]{csquotes}
+\RequirePackage[
+  style=numeric%
+  ]{biblatex}
+\fi
 
 % title
 \renewcommand\title{\@dblarg\mytitlecmd}
