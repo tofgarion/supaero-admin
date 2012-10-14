@@ -7,6 +7,14 @@
 \ProvidesClass{supaero-lettre}[2009/09/29 v0.1 
                LaTeX document class for SUPAERO letter and fax]
 
+% defs etc.
+\def\@language{english}
+\def\@requirefrench{}
+\DeclareOption{fr}{\def\@language{french}\def\@requirefrench{true}}
+\DeclareOption{en}{\def\@language{english}}
+\DeclareOption{fr-en}{\def\@language{english,french}\def\@requirefrench{true}}
+\DeclareOption{en-fr}{\def\@language{french,english}}
+
 % This class extends the lettre class
 % Read all the documentclass options; pass them to article,
 % unless the file "<currentoption>.sup" exists, then it is loaded
@@ -16,11 +24,26 @@
 \RequirePackage{atbegshi}
 \LoadClass{lettre}
 
-% babel for languages
-\RequirePackage{babel}
+% fonts
+\RequirePackage[T1]{fontenc}
+\RequirePackage{textcomp}
+
+% babel for languages. Beamer uses translator package for theorem
+% etc. names.
+\RequirePackage[\@language]{babel}
+\ifx\@requirefrench\@empty
+  \RequirePackage{xspace}
+\else
+  \RequirePackage{ae,aecompl,aeguill}
+\fi
 
 % microtype for spacing
-\RequirePackage[babel=true,kerning=true]{microtype} 
+\RequirePackage[babel=true,kerning=true]{microtype}
+\SetExtraKerning%
+    [ name = ttkerning,%
+      context  = french]%
+    { encoding = {OT1,T1}, family={ul9,fvm,tt*} }%
+    { }%
 
 % url package for email adress
 \RequirePackage{url}

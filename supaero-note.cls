@@ -8,6 +8,12 @@
                LaTeX document class for SUPAERO note]
 
 % defs etc.
+\def\@language{english}
+\def\@requirefrench{}
+\DeclareOption{fr}{\def\@language{french}\def\@requirefrench{true}}
+\DeclareOption{en}{\def\@language{english}}
+\DeclareOption{fr-en}{\def\@language{english,french}\def\@requirefrench{true}}
+\DeclareOption{en-fr}{\def\@language{french,english}}
 \def\@requirevisa{}
 \DeclareOption{visa}{\def\@requirevisa{true}}
 
@@ -93,11 +99,26 @@ Direction de la Formation SUPAERO
 \RequirePackage[hscale=0.85, vscale=0.92,
                 top=20pt, includeheadfoot]{geometry}
 
-% babel for languages
-\RequirePackage{babel}
+% fonts
+\RequirePackage[T1]{fontenc}
+\RequirePackage{textcomp}
+
+% babel for languages. Beamer uses translator package for theorem
+% etc. names.
+\RequirePackage[\@language]{babel}
+\ifx\@requirefrench\@empty
+  \RequirePackage{xspace}
+\else
+  \RequirePackage{ae,aecompl,aeguill}
+\fi
 
 % microtype for spacing
-\RequirePackage[babel=true,kerning=true]{microtype} 
+\RequirePackage[babel=true,kerning=true]{microtype}
+\SetExtraKerning%
+    [ name = ttkerning,%
+      context  = french]%
+    { encoding = {OT1,T1}, family={ul9,fvm,tt*} }%
+    { }%
 
 % insert logos
 \RequirePackage[pdftex]{graphicx}
