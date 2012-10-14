@@ -51,4 +51,5 @@ exempleRIA.pdf:	exempleRIA.tex
 
 clean:
 	@echo "cleaning all the files"
-	rm -Rf $(LOCAL_TEXMF)/doc/latex/supaero-admin/*.pdf
+	- rm -f $(LOCAL_TEXMF)/doc/latex/supaero-admin/*.pdf
+
