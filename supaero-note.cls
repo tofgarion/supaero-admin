@@ -7,6 +7,10 @@
 \ProvidesClass{supaero-note}[2010/09/22 v0.2 
                LaTeX document class for SUPAERO note]
 
+% defs etc.
+\def\@requirevisa{}
+\DeclareOption{visa}{\def\@requirevisa{true}}
+
 \global\let\numero@internal\@empty
 \newcommand{\numero}[1]{\def\numero@internal{#1}}
 \global\let\objet@internal\@empty
@@ -39,6 +43,42 @@ Direction de la Formation SUPAERO
 \def\textrhead@other@internal{\shorttitle , \@author}
 \newcommand{\textrheadother}[1]{\renewcommand{\textrhead@other@internal}{#1}}
 
+\global\let\@function\@empty
+\newcommand{\setfunction}[1]{\def\@function{#1}}
+\let\function\setfunction %
+\newcommand{\show@function}{\@function}
+
+% only for visa
+\global\let\@authorsig\@empty
+\newcommand{\setauthorsig}[1]{\def\@authorsig{#1}}
+\let\authorsig\setauthorsig %
+\newcommand{\show@authorsig}{\@authorsig}
+
+\global\let\@visaname\@empty
+\newcommand{\setvisaname}[1]{\def\@visaname{#1}}
+\let\visaname\setvisaname %
+\newcommand{\show@visaname}{\@visaname}
+
+\global\let\@visafunction\@empty
+\newcommand{\setvisafunction}[1]{\def\@visafunction{#1}}
+\let\visafunction\setvisafunction %
+\newcommand{\show@visafunction}{\@visafunction}
+
+\global\let\@paperorig\@empty
+\newcommand{\setpaperorig}[1]{\def\@paperorig{#1}}
+\let\paperorig\setpaperorig %
+\newcommand{\show@paperorig}{\@paperorig}
+
+\global\let\@filesrc\@empty
+\newcommand{\setfilesrc}[1]{\def\@filesrc{#1}}
+\let\filesrc\setfilesrc %
+\newcommand{\show@filesrc}{\@filesrc}
+
+\global\let\@filename\@empty
+\newcommand{\setfilename}[1]{\def\@filename{#1}}
+\let\filename\setfilename %
+\newcommand{\show@filename}{\@filename}
+
 % This class extends the article class
 % Read all the documentclass options; pass them to article,
 % unless the file "<currentoption>.sup" exists, then it is loaded
@@ -63,6 +103,9 @@ Direction de la Formation SUPAERO
 \RequirePackage[pdftex]{graphicx}
 
 % title page
+\RequirePackage{multirow}
+\RequirePackage{amssymb}
+
 \renewenvironment{titlepage}
 {%
   \@restonecolfalse\newpage
@@ -141,8 +184,36 @@ Direction de la Formation SUPAERO
   \end{tabular*}
 
   \vskip 40\p@
-  {\Large \textbf{R\'edacteur:} \@author}
 
+  \ifx\@requirevisa\@empty
+  {\Large \textbf{R\'edacteur:} \@author{}
+    \ifx\@function\@empty\relax\else (\show@function)\fi}
+  \else
+  \begin{center}
+    {\large
+    \begin{tabular}[h]{l l l p{0.6\textwidth}}
+      Original papier & Oui \ifx\@paperorig\@empty$\Box$\else$\boxtimes$\fi & Non
+      \ifx\@paperorig\@empty$\boxtimes$\else$\Box$\fi\\
+      Source informatique & Oui \ifx\@filesrc\@empty$\Box$\else$\boxtimes$\fi &
+      Non \ifx\@filesrc\@empty$\boxtimes$\else$\Box$\fi & Nom fichier: \show@filename
+    \end{tabular}
+
+    \vskip 20\p@
+
+    \begin{tabular}[h]{| l | p{0.3\textwidth} | p{0.3\textwidth} |}
+      \cline{2-3}
+      \multicolumn{1}{c}{} & \multicolumn{1}{| c |}{R\'edacteur} &
+      \multicolumn{1}{| c |}{Visa Approbateur}\\
+      \hline
+      Nom & \@author & \show@visaname\\
+      Sigle & \show@function & \show@visafunction\\
+      Date & \@date & \\
+      \multirow{10}{0.05\textwidth}{~} & \show@authorsig & \\
+      \hline
+    \end{tabular}
+    }
+  \end{center}
+  \fi
   \newpage
   \end{titlepage}
 }

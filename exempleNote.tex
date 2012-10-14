@@ -32,6 +32,7 @@
 }
 
 \author{C. Garion}
+\function{E/C DMIA}
 
 \title{Note portant sur l'utilisation d'un style \LaTeX pour les notes DFS}
 \maketitle
@@ -53,7 +54,7 @@ plus près ces paquetages pourra consulter les archives
 CTAN~\cite{ctan} ou \cite{mittelbach04:_latex_companion}.
 
 \section{Utilisation de la classe}
-\label{sec:utilisation-de-la}
+\label{sec:utilisation-classe}
 
 \subsection{Chargement de la classe et dimensions}
 \label{sec:chargement-classe}
@@ -115,6 +116,8 @@ La page de titre se personnalise de la façon suivante:
   \verb!\title[titrecourt]{titresuperlong}!)
 \item la commande \verb!\author{}! permet de donner le nom du
   rédacteur du document
+\item la commande \verb!\function{}! permet de donner la fonction du
+  rédacteur du document
 \item la commande \verb!\numero{}! permet de donner le numéro de la
   note
 \item la commande \verb!\objet{}! permet de donner l'objet de la note
@@ -134,6 +137,30 @@ La page de titre se personnalise de la façon suivante:
       \hline
    } 
 \end{verbatim}
+\end{itemize}
+
+\subsection{Documents avec visa}
+\label{sec:documents-avec-visa}
+
+Il arrive que certaines notes nécessitent un visa de la part d'un
+approbateur. Dans ce cas, il suffit d'ajouter l'option \verb!visa!
+lors du chargement de la classe. Dans ce cas, on dispose de nouvelles
+commandes:
+
+\begin{itemize}
+\item la commande \verb!\authorsig! permet de donner une éventuelle
+  signature du rédacteur sous forme d'image en utilisant
+  \verb!\includegraphics! par exemple
+\item la commande \verb!\visaname! permet de donner le nom de
+  l'approbateur
+\item la commande \verb!\visafunction! permet de donner la fonction de
+  l'approbateur
+\item la commande \verb!\paperorig! permet de signaler que l'original
+  existe sous forme papier
+\item la commande \verb!\filesrc! permet de signaler qu'il existe une
+  source informatique
+\item la commande \verb!\filename! permet de donner le nom de fichier
+  de la source informatique
 \end{itemize}
 
 \subsection{Fichier de déclarations}
