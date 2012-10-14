@@ -136,7 +136,6 @@ Direction de la Formation SUPAERO
 \fi
 
 % title page
-\RequirePackage{multirow}
 \RequirePackage{amssymb}
 
 \renewenvironment{titlepage}
@@ -233,15 +232,19 @@ Direction de la Formation SUPAERO
 
     \vskip 20\p@
 
-    \begin{tabular}[h]{| l | p{0.3\textwidth} | p{0.3\textwidth} |}
+    \begin{tabular}[h]{| l | p{0.4\textwidth} | p{0.4\textwidth} |}
       \cline{2-3}
       \multicolumn{1}{c}{} & \multicolumn{1}{| c |}{R\'edacteur} &
-      \multicolumn{1}{| c |}{Visa Approbateur}\\
+      \multicolumn{1}{ c |}{Visa Approbateur}\\
       \hline
       Nom & \@author & \show@visaname\\
       Sigle & \show@function & \show@visafunction\\
       Date & \@date & \\
-      \multirow{10}{0.05\textwidth}{~} & \show@authorsig & \\
+      & & \\
+      & & \\
+      & \show@authorsig & \\
+      & & \\
+      & & \\
       \hline
     \end{tabular}
     }
