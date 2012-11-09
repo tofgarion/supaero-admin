@@ -287,3 +287,4 @@ Direction de la Formation SUPAERO
 
 % default font
 \renewcommand\familydefault{cmss}
+\RequirePackage[cm]{sfmath}

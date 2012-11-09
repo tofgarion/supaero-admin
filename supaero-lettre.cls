@@ -63,6 +63,7 @@
 % default font
 \DeclareOldFontCommand{\rm}{\sffamily}{\mathsf}
 \renewcommand\familydefault{cmss}
+\RequirePackage[cm]{sfmath}
 
 % institut file
 \institut{supaero}

@@ -211,3 +211,4 @@
 
 % default font
 \renewcommand\familydefault{cmss}
+\RequirePackage[cm]{sfmath}

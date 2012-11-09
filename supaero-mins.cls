@@ -180,6 +180,7 @@
 
 % default font
 \renewcommand\familydefault{cmss}
+\RequirePackage[cm]{sfmath}
 
 % commands and environments
 \newcommand{\mintitle}[1]{\vspace{2ex}\par\noindent\textbf{#1}\par}

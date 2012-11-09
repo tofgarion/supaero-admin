@@ -165,6 +165,7 @@
 
 % default font
 \renewcommand\familydefault{cmss}
+\RequirePackage[cm]{sfmath}
 
 % no indentation
 \setlength{\parindent}{0in}
