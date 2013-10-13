@@ -46,6 +46,7 @@
   \RequirePackage{xspace}
 \else
   \RequirePackage{ae,aecompl,aeguill}
+  \frenchbsetup{ItemLabels=\textendash}
 \fi
 
 % microtype for spacing
