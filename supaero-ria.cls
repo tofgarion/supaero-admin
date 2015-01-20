@@ -4,7 +4,7 @@
 %% Mostly taken from article.cls and "Rolling your own Document Class:
 %% Using LaTeX to keep away from the Dark Side" by Peter Flynn
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{supaero-ria}[2010/09/22 v0.2 
+\ProvidesClass{supaero-ria}[2010/09/22 v0.2
                LaTeX document class for SUPAERO annual report]
 
 
@@ -97,7 +97,7 @@
 
 % page layout
 \RequirePackage[hscale=0.85, vscale=0.92,
-                top=25pt, headheight=70pt, 
+                top=25pt, headheight=70pt,
                 includeheadfoot]{geometry}
 
 % fonts
@@ -152,7 +152,7 @@
       \large D\'epartement/UR & \large : \dep@internal/\ur@internal & \\
       \large Formation et UF principale  & \large : \formation@internal/\uf@internal & \\
       \hline
-    \end{tabular}    
+    \end{tabular}
   }
   \rhead{}
 
@@ -175,7 +175,8 @@
 \ifx\@requirebiblatex\@empty
   \relax
 \else
-  \RequirePackage{biblatex}
+  \RequirePackage[autostyle]{csquotes}
+  \RequirePackage[backend=biber,defernumbers=true]{biblatex}
   \DeclareBibliographyCategory{journal}
   \defbibheading{journal}{\subsection*{Articles dans des journaux
       internationaux \`a comit\'e de lecture}}
@@ -198,6 +199,8 @@
   \DeclareBibliographyCategory{nat-conf-worev}
   \defbibheading{nat-conf-worev}{\subsection*{Publications dans des
       conf\'erences nationales sans comit\'e de lecture}}
+  \DeclareBibliographyCategory{tr}
+  \defbibheading{tr}{\subsection*{Rapports techniques}}
   \DeclareBibliographyCategory{ln}
   \defbibheading{ln}{\subsection*{Polycopi\'es de cours}}
   \DeclareBibliographyCategory{misc}
@@ -304,7 +307,7 @@
 \else
   \section{Autres activit\'es}
   \label{sec:autres-activites}
-  
+
   \show@whatelse
 \fi %
 
