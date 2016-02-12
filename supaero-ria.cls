@@ -93,6 +93,7 @@
     \PassOptionsToClass{\CurrentOption}{article}}}
 \ProcessOptions \relax
 \RequirePackage{atbegshi}
+\RequirePackage[hyperref,x11names]{xcolor}
 \LoadClass{article}
 
 % page layout
@@ -103,6 +104,9 @@
 % fonts
 \RequirePackage[T1]{fontenc}
 \RequirePackage{textcomp}
+
+% hyperref package for links
+\RequirePackage[pdfversion=1.7, pdftex, colorlinks, urlcolor=blue, pdfstartview=FitH, pdfhighlight={/N}]{hyperref}
 
 % babel for languages. Beamer uses translator package for theorem
 % etc. names.
