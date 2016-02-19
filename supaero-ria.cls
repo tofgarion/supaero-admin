@@ -18,10 +18,10 @@
 \def\@requirebiblatex{}
 \DeclareOption{biblatex}{\def\@requirebiblatex{true}}
 
-\def\dep@internal{DMIA}
+\def\dep@internal{DISC}
 \newcommand{\dep}[1]{\def\dep@internal{#1}}
 
-\def\ur@internal{MARS}
+\def\ur@internal{IpSC}
 \newcommand{\ur}[1]{\def\ur@internal{#1}}
 
 \def\formation@internal{SUPAERO}
