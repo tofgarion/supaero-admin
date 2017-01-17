@@ -4,7 +4,7 @@
 %% Mostly taken from article.cls and "Rolling your own Document Class:
 %% Using LaTeX to keep away from the Dark Side" by Peter Flynn
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{supaero-ria}[2010/09/22 v0.2
+\ProvidesClass{supaero-ria}[2017/01/17 v0.3
                LaTeX document class for SUPAERO annual report]
 
 
@@ -96,35 +96,66 @@
 \RequirePackage[hyperref,x11names]{xcolor}
 \LoadClass{article}
 
+% for luatex
+\RequirePackage{ifluatex}
+
 % page layout
 \RequirePackage[hscale=0.85, vscale=0.92,
                 top=25pt, headheight=70pt,
                 includeheadfoot]{geometry}
 
 % fonts
+\ifluatex
+\RequirePackage{fontspec}
+\setmainfont{texgyrepagella}
+\setsansfont{lmsans10-regular}[Scale=MatchLowercase]
+\setmonofont{Fira Mono}[Scale=0.9]
+\RequirePackage{mathtools,amssymb}
+\RequirePackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\else
 \RequirePackage[T1]{fontenc}
 \RequirePackage{textcomp}
+\fi
 
 % hyperref package for links
-\RequirePackage[pdfversion=1.7, pdftex, colorlinks, urlcolor=blue, pdfstartview=FitH, pdfhighlight={/N}]{hyperref}
+\RequirePackage[pdfversion=1.7, colorlinks, urlcolor=blue, pdfstartview=FitH, pdfhighlight={/N}]{hyperref}
 
 % babel for languages. Beamer uses translator package for theorem
 % etc. names.
 \RequirePackage[\@language]{babel}
+\RequirePackage{translator}
 \ifx\@requirefrench\@empty
-  \RequirePackage{xspace}
+  \relax
 \else
+  \uselanguage{French}
+  \languagepath{French}
+  \deftranslation[to=French]{Audience}{Public}
+  \ifluatex
+  \relax
+  \else
   \RequirePackage{ae,aecompl,aeguill}
+  \fi
   \frenchbsetup{ItemLabels=\textendash}
 \fi
 
 % microtype for spacing
+\ifluatex
+\relax
+\else
 \RequirePackage[babel=true,kerning=true]{microtype}
 \SetExtraKerning%
     [ name = ttkerning,%
       context  = french]%
-    { encoding = {OT1,T1}, family={ul9,fvm,tt*} }%
+    { encoding = {OT1,T1},
+      family = {ul9, tt*} }%
     { }%
+\SetExtraKerning%
+    [ name = uml,%
+      context  = uml]%
+    { encoding = {OT1,T1} }%
+    { }%
+\fi
 
 % fancy tables
 \RequirePackage{booktabs}
@@ -133,7 +164,11 @@
 \RequirePackage{multirow}
 
 % graphics
+\ifluatex
+\RequirePackage{graphicx}
+\else
 \RequirePackage[pdftex]{graphicx}
+\fi
 
 % header and footer
 \RequirePackage{fancyhdr}
@@ -154,7 +189,7 @@
        & & \\[-1.5ex]
       \large Pr\'enom-Nom  & \large : \@author & \\
       \large D\'epartement/UR & \large : \dep@internal/\ur@internal & \\
-      \large Formation et UF principale  & \large : \formation@internal/\uf@internal & \\
+      & & \\%\large Formation et UF principale  & \large : \formation@internal/\uf@internal & \\
       \hline
     \end{tabular}
   }
@@ -169,8 +204,12 @@
 \pagestyle{mypage}
 
 % default font
+\ifluatex
+\relax
+\else
 \renewcommand\familydefault{cmss}
 \RequirePackage[cm]{sfmath}
+\fi
 
 % no indentation
 \setlength{\parindent}{0in}
