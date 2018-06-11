@@ -20,13 +20,13 @@
 \DeclareOption{biblatex}{\def\@requirebiblatex{true}}
 
 % definitions need to be here to be processed by the .sup file
-% who is meeting? 
+% who is meeting?
 \global\let\@members\@empty
 \newcommand{\setmembers}[1]{\def\@members{#1}}
 \let\members\setmembers %
 \newcommand{\show@members}{\@members}
 
-% who is absent? 
+% who is absent?
 \global\let\@absent\@empty
 \newcommand{\setabsent}[1]{\def\@absent{#1}}
 \let\absent\setabsent %
@@ -60,13 +60,27 @@
 \RequirePackage{atbegshi}
 \LoadClass{article}
 
+% for luatex
+\RequirePackage{ifluatex}
+
 % page layout
 \RequirePackage[hscale=0.85, vscale=0.9,
                 top=20pt, includeheadfoot]{geometry}
 
 % fonts
+% fonts
+\ifluatex
+\RequirePackage{fontspec}
+\setmainfont{texgyrepagella}
+\setsansfont{lmsans10-regular}[Scale=MatchLowercase]
+\setmonofont{Fira Mono}[Scale=0.9]
+\RequirePackage{mathtools,amssymb}
+\RequirePackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\else
 \RequirePackage[T1]{fontenc}
 \RequirePackage{textcomp}
+\fi
 
 % babel for languages. Beamer uses translator package for theorem
 % etc. names.
@@ -79,12 +93,22 @@
 \fi
 
 % microtype for spacing
+\ifluatex
+\relax
+\else
 \RequirePackage[babel=true,kerning=true]{microtype}
 \SetExtraKerning%
     [ name = ttkerning,%
       context  = french]%
-    { encoding = {OT1,T1}, family={ul9,fvm,tt*} }%
+    { encoding = {OT1,T1},
+      family = {ul9, tt*} }%
     { }%
+\SetExtraKerning%
+    [ name = uml,%
+      context  = uml]%
+    { encoding = {OT1,T1} }%
+    { }%
+\fi
 
 % bibliography with biblatex
 \ifx\@requirebiblatex\@empty
@@ -97,7 +121,11 @@
 \fi
 
 % title page
+\ifluatex
+\RequirePackage{graphicx}
+\else
 \RequirePackage[pdftex]{graphicx}
+\fi
 
 \renewenvironment{titlepage}
 {%
@@ -120,7 +148,7 @@
   \begin{center}%
     \hbox{\rlap{\parbox{\textwidth}{\raggedright\hskip 40\p@\includegraphics[width=0.1\textwidth]
                                                                 {VL_SUPAERO_72_cmjn.png}}}
-      \hskip 15\p@ 
+      \hskip 15\p@
       \parbox{\textwidth}{\centering \parbox{0.6\textwidth}{\centering
           \Large \mytitle \\ \@date}}}
   \end{center}
@@ -180,8 +208,12 @@
 \AtBeginDocument{\thispagestyle{firstpage}}
 
 % default font
+\ifluatex
+\relax
+\else
 \renewcommand\familydefault{cmss}
 \RequirePackage[cm]{sfmath}
+\fi
 
 % commands and environments
 \newcommand{\mintitle}[1]{\vspace{2ex}\par\noindent\textbf{#1}\par}
